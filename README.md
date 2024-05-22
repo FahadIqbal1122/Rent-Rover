@@ -18,6 +18,7 @@
 
 #### This App will be for users who are looking for appartments for rent depending on their requierments, also for subscribers to display their properties to sell or rent.
 #### It also allows user to see appartment details such as: Fruneture, Rooms, Appartment View, Parking, Services and Price. 
+#### The app can track client payments and have payment history to see who is late for rent or who paid extra and subtrak it from next rent 
 
 ---
 
