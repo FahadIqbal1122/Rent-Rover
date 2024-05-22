@@ -16,23 +16,23 @@
 
 ### **Find Your Appartment App**
 
-#### This App will be for users who are looking for appartments for rent depending on their requierments, also for subscribers to display their properties to sell or rent
+#### This App will be for users who are looking for appartments for rent depending on their requierments, also for subscribers to display their properties to sell or rent.
+#### It also allows user to see appartment details such as: Fruneture, Rooms, Appartment View, Parking, Services and Price. 
 
 ---
 
 ## **_Technologies used_**
 
-#### Google Authorisation
+###Front-end
+####- HTML
+####- CSS
+####- Javascript
 
-#### Express
-
-#### Node Js
-
-#### CSS
-
-#### JavaScript
-
-#### EJS
+###Back-end
+####- Express
+####- Frameworks: Node.js
+####- Databases:  MongoDB
+####- Google Authorization
 
 ---
 
