@@ -12,14 +12,14 @@ async function create(req, res) {
   }
 }
 async function deleteReview(req, res) {
-  const movie = await Movie.findOne({
+  const appartment = await Appartment.findOne({
     "reviews._id": req.params.id,
     "reviews.user": req.user._id,
   })
-  if (!movie) return res.redirect("/movies")
-  movie.reviews.remove(req.params.id)
-  await movie.save()
-  res.redirect(`/movies/${movie._id}`)
+  if (!appartment) return res.redirect("/appartments")
+  appartment.reviews.remove(req.params.id)
+  await appartment.save()
+  res.redirect(`/appartments/${appartment._id}`)
 }
 
 module.exports = {
