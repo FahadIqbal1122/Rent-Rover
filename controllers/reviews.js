@@ -1,9 +1,5 @@
 const Appartment = require("../models/appartment")
 
-module.exports = {
-  create,
-}
-
 async function create(req, res) {
   try {
     const appartment = await Appartment.findById(req.params.id)
@@ -14,4 +10,19 @@ async function create(req, res) {
     console.error(err)
     res.status(500).send(err.message)
   }
+}
+async function deleteReview(req, res) {
+  const movie = await Movie.findOne({
+    "reviews._id": req.params.id,
+    "reviews.user": req.user._id,
+  })
+  if (!movie) return res.redirect("/movies")
+  movie.reviews.remove(req.params.id)
+  await movie.save()
+  res.redirect(`/movies/${movie._id}`)
+}
+
+module.exports = {
+  create,
+  delete: deleteReview,
 }
