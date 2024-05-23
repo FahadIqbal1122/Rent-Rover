@@ -6,17 +6,15 @@
     </tr>
   </thead>
   <tbody>
-    <nav> <a href="">Appartments</a>
-    <a href="/appartments/<%= appartment._id %>">Reviews</a></nav>
     <% appartments.forEach(function(appartment) { %>
       <tr> 
         <td><%= appartment.name %></td>
-        <td><%= appartment.Furniture %></td>
+        <td><%= appartment.furnished %></td>
         <td><%= appartment.rooms %></td>
         <td><%= appartment.view %></td>
         <td><%= appartment.parking %></td>
         <td><%= appartment.price %></td>
-        <td><%= appartment.servises %></td>
+        <td><%= appartment.services %></td>
         <td><%= appartment.email %></td>
       </tr>
       <% }); %>
