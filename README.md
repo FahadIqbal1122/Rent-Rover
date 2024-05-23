@@ -24,16 +24,12 @@
 
 ## **_Technologies used_**
 
-###Front-end
-####- HTML
-####- CSS
-####- Javascript
+### - Front-end
+#### - HTML - CSS - Javascript
 
-###Back-end
-####- Express
-####- Frameworks: Node.js
-####- Databases:  MongoDB
-####- Google Authorization
+### - Back-end
+#### - Express
+#### - Frameworks: Node.js - Databases:  MongoDB - Google Authorization
 
 ---
 
