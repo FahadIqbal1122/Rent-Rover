@@ -5,4 +5,8 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <nav><a href="/">Home</a><a href="/appartments/">All Appartments</a><a href="/appartments/new">New Appartment</a></nav>
+    <% if (user) { %>
+    <nav><a href="/">Home</a> | <a href="/appartments/">All Appartments</a> | <a href="/appartments/new">New Appartment</a> | <a href="/logout">LOG OUT</a>
+      <% } else { %>
+        <a href="/auth/google" class="login">LOG IN&nbsp;</a>
+      <% } %></nav>
