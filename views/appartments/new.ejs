@@ -1,3 +1,28 @@
 <%- include('../partials/header') %>
 <!-- YOUR CODE HERE -->
+<form id="new-form" action="/appartments" method="POST">
+  <label>Building:</label>
+  <input type="text" name="Building">
+  <label>Furnished:</label>
+  <input type="checkbox" name="Furnished" checked>
+  <label>Rooms</label>
+  <select name="Rooms">
+    <option value="2">1 BDR</option>
+    <option value="2">2 BDR</option>
+    <option value="3">3 BDR</option>
+    <option value="4">4 BDR</option>
+  </select>
+  <label>View:</label>
+  <input type="text" name="View">
+  <label>Parking:</label>
+  <input type="checkbox" name="Parking" checked>
+  <label>Services:</label>
+  <input type="text" name="Services">
+  <label>Email:</label>
+  <input type="text" name="Email">
+  <label>Price:</label>
+  <input type="number" name="Price">
+  
+  <input type="submit" value="Add Movie">
+</form>
 <%- include('../partials/footer') %>
