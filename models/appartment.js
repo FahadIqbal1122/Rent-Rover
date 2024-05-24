@@ -32,7 +32,15 @@ const appartmentSchema = new Schema({
   },
   view: {
     type: String,
-    enum: ["seaView", "gardenView", "pentHouse", "normalView"],
+    enum: [
+      "seaView",
+      "gardenView",
+      "cityView",
+      "pentHouse",
+      "normalView",
+      "beachView",
+      "poolView",
+    ],
   },
   parking: {
     type: Boolean,

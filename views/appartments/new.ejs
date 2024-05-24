@@ -1,3 +1,49 @@
 <%- include('../partials/header') %>
-<!-- YOUR CODE HERE -->
+
+<form id ="new-form" action = "/appartments" method ="POST"></form>
+<label> Name</label> 
+<input type ="text" name ="name">
+<label>Furnished</label>
+<input type="text" name="furnished">
+<label>Rooms</label>
+<select name="Rooms">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+</select>
+<label>View</label>
+<select name="View">
+  <option value="seaView">seaView</option>
+  <option value="gardenView">gardenView</option>
+  <option value="cityView">cityView</option>
+  <option value="beachView">beachView</option>
+  <option value="poolView">poolView</option>
+  <option value="pentHouse">pentHouse</option>
+  <option value ="normalView">normalView</option>
+</select>
+<label>Price</label>
+<input type="number" name="Price">
+<label>Services</label>
+<select name ="services">
+  <option value="Internet">Internet</option>
+  <option value ="Laundry facilities">Laundry facilities</option>
+  <option value="Air conditioning">Air conditioning</option>
+  <option value="Room Service">Room Service</option>
+  <option value="Mainenance">Maintenance</option>
+  <option value="Gym">Gym</option>
+  <option value="Security">Security</option>
+  <option value="online rent payments">Online rent payments</option>
+</select>
+<label>Email</label>
+<input type ="text" name="Email">
+<label>Parking</label>
+<input type="checkbox" name="nowShowing">
+<input type="submit"   name="Add Appartment">
+</form>
+
 <%- include('../partials/footer') %>
