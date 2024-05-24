@@ -16,7 +16,15 @@ function newAppartment(req, res) {
 
 async function create(req, res) {
   try {
-    res.redirect("/appartments")
+    const appartment = new Appartment(req.body)
+    if (appartment.name) {
+      appartment.name = appartment.name.toUpperCase()
+    }
+    if (appartment.price) {
+      appartment.price = appartment.price.toString()
+    }
+    const newAppartment = await appartment.save()
+    res.redirect(`/appartments/${newAppartment._id}`)
   } catch (err) {
     console.log(err)
     res.render("appartments/new", { errorMsg: err.message })
