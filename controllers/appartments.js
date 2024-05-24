@@ -1,8 +1,8 @@
 const Appartment = require("../models/appartment")
 
 async function index(req, res) {
-  const appartments = await Movie.find({})
-  res.render("appartments/index", { title: "All Appartments", movies })
+  const appartments = await Appartment.find({})
+  res.render("appartments/index", { title: "All Appartments", appartments })
 }
 
 async function show(req, res) {

@@ -1,23 +1,19 @@
-<table id="list">
-  <thead>
-    <tr>
-      <th>RENT ROVER</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% appartments.forEach(function(appartment) { %>
-      <tr> 
-        <td><%= appartment.name %></td>
-        <td><%= appartment.furnished %></td>
-        <td><%= appartment.rooms %></td>
-        <td><%= appartment.view %></td>
-        <td><%= appartment.parking %></td>
-        <td><%= appartment.price %></td>
-        <td><%= appartment.services %></td>
-        <td><%= appartment.email %></td>
-      </tr>
-      <% }); %>
-    </tbody>
+<%- include('../partials/header') %>
+
+  <% appartments.forEach(function(appartment) { %>
+  <div class="boxes">
+    <div class="picture">
+      <img src="https://media.istockphoto.com/id/1165384568/photo/europe-modern-complex-of-residential-buildings.jpg?s=612x612&w=0&k=20&c=iW4NBiMPKEuvaA7h8wIsPHikhS64eR-5EVPfjQ9GPOA=" alt="app1">
+    </div>
+    <div class="details">
+        <h3><%= appartment.name %></h3>
+        <p><%= appartment.price%></p>
+        <p><%= appartment.email %></p>
+        <button>More Details </button>
+      </div>
+    </div>
+      <% }); %> 
+
+    <%- include('../partials/footer') %>
 
 

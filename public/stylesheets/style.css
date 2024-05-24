@@ -1,8 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: grey;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
