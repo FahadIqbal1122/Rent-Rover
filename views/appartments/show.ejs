@@ -1,24 +1,22 @@
-<!-- <%- include('../partials/header') %>
+<%- include('../partials/header') %>
 <!-- YOUR CODE HERE -->
 <section id="show-page">
   <div>Building: </div>
   <div><%= appartment.name %></div>
-  <div>Release Year: </div>
+  <div>Furnished: </div>
   <div><%= appartment.furnished ? 'yes' : 'no' %></div>
-  <div>Rating: </div>
+  <div>Rooms: </div>
   <div><%= appartment.rooms %></div>
-  <div>Now Showing: </div>
+  <div>View: </div>
   <div><%= appartment.view %></div>
   <div>Parking: </div>
-  <div><%= appartment.Parking ? 'yes' : 'no' %></div>
+  <div><%= appartment.parking ? 'yes' : 'no' %></div>
   <div>Services: </div>
-  <div><%= appartment.Services %></div>
+  <div><%= appartment.services %></div>
   <div>Email:</div>
-  <div><%= appartment.Email %></div>
-  <div>Reviews: </div>
-  <div><%= appartment.Reviews %></div>
+  <div><%= appartment.email %></div>
   <div>Price: </div>
-  <div><%= appartment.Price %> </div>
+  <div><%= appartment.price %> </div>
 
   <br><br><h2>Reviews</h2>
   <% if (user) { %>
@@ -66,4 +64,4 @@
   <% } else { %>
     <h5>No Reviews Yet</h5>
   <% } %>
-<%- include('../partials/footer') %> -->
+<%- include('../partials/footer') %>
