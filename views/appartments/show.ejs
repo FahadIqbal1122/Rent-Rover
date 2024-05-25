@@ -1,6 +1,11 @@
 <%- include('../partials/header') %>
 <!-- YOUR CODE HERE -->
 <section id="show-page">
+  <% if (appartment.image) { %>
+    <img src="/appartments/<%= appartment.image %>" alt="Apartment Image">
+  <% } else { %>
+    <p>No image uploaded for this apartment.</p>
+  <% } %>
   <div>Building: </div>
   <div><%= appartment.name %></div>
   <div>Release Year: </div>
