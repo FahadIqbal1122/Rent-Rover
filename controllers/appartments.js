@@ -33,6 +33,9 @@ async function create(req, res) {
     } else {
       appartment.parking = false
     }
+    if (appartment.image) {
+      appartment.image = req.file.image
+    }
     const newAppartment = await appartment.save()
     console.log(newAppartment)
     res.redirect(`/appartments/${newAppartment._id}`)
