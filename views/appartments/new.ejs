@@ -44,4 +44,12 @@
 <input type="checkbox" name="parking">
 <input type="submit"   name="Add Appartment">
 </form>
+
+<form action="/appartments" method="GET" class="form-inline">
+  <div class ="form-group">
+    <input name ="q"type="text"class="form control" placeholder="appartment search...">
+    <input type ="submit" class="btn btn-default" value="search">
+  </div>
+</form>
+
 <%- include('../partials/footer') %>
