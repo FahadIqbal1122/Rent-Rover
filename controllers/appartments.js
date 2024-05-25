@@ -20,10 +20,21 @@ async function create(req, res) {
     if (appartment.name) {
       appartment.name = appartment.name.toUpperCase()
     }
-    if (appartment.price) {
+    if (req.body.price) {
       appartment.price = appartment.price.toString()
     }
+    if (req.body.furnished === "true") {
+      appartment.furnished = true
+    } else {
+      appartment.furnished = false
+    }
+    if (req.body.parking === "on") {
+      appartment.parking = true
+    } else {
+      appartment.parking = false
+    }
     const newAppartment = await appartment.save()
+    console.log(newAppartment)
     res.redirect(`/appartments/${newAppartment._id}`)
   } catch (err) {
     console.log(err)
