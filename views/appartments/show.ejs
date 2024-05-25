@@ -37,6 +37,8 @@
   <% } %>
   
   <% if (appartment.reviews.length) { %>
+  
+  <% } else { %>
     <table>
       <thead>
         <tr>
@@ -54,14 +56,13 @@
             <td><%= review.rating %></td>
             <% if (user?._id.equals(review.user)) { %>
               <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
-                <button type="submit">X</button>
+                <button type="submit">Delete</button>
               </form>
             <% } %>
           </tr>
         <% }); %>
       </tbody>
     </table>
-  <% } else { %>
     <h5>No Reviews Yet</h5>
   <% } %>
 <%- include('../partials/footer') %>
