@@ -1,10 +1,20 @@
 <%- include('../partials/header') %>
+<p>
+  <form action="/appartments" method="GET" class="form-inline" > 
+    <div class ="form-group">
+  <input type ="text" name="search" placeholder="appartment search..." class="form-control" >
+  <input type ="submit" value ="search" class="btn btn-default">
+  </div>
+</form>
+
 
   <% appartments.forEach(function(appartment) { %>
   <div class="boxes">
     <div class="picture">
       <img src="https://media.istockphoto.com/id/1165384568/photo/europe-modern-complex-of-residential-buildings.jpg?s=612x612&w=0&k=20&c=iW4NBiMPKEuvaA7h8wIsPHikhS64eR-5EVPfjQ9GPOA=" alt="app1">
     </div>
+    
+    </p>
     <div class="details">
         <h3><%= appartment.name %></h3>
         <p><%= appartment.price%></p>

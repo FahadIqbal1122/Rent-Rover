@@ -24,6 +24,7 @@ const appartmentSchema = new Schema({
     type: String,
     required: true,
   },
+
   furnished: {
     type: Boolean,
     required: true,
