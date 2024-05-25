@@ -33,6 +33,9 @@ async function create(req, res) {
     } else {
       appartment.parking = false
     }
+    if (appartment.image) {
+      appartment.image = req.file.image
+    }
     const newAppartment = await appartment.save()
     console.log(newAppartment)
     res.redirect(`/appartments/${newAppartment._id}`)
@@ -42,9 +45,19 @@ async function create(req, res) {
   }
 }
 
+async function deleteAppartment(req, res) {
+  if (!Appartment.user.equals(req.user._id)) {
+    return res.status(403).send('You are not authorized to delete this apartment');
+}
+      await Appartment.findByIdAndDelete(req.params.id);
+      res.redirect('/appartments'); 
+    
+}
+
 module.exports = {
   index,
   show,
   new: newAppartment,
   create,
+  delete: deleteAppartment,
 }

@@ -1,22 +1,29 @@
 <%- include('../partials/header') %>
 <!-- YOUR CODE HERE -->
 <section id="show-page">
+  <% if (appartment.image) { %>
+    <img src="/appartments/<%= appartment.image %>" alt="Apartment Image">
+  <% } else { %>
+    <p>No image uploaded for this apartment.</p>
+  <% } %>
   <div>Building: </div>
   <div><%= appartment.name %></div>
-  <div>Furnished: </div>
+  <div>Release Year: </div>
   <div><%= appartment.furnished ? 'yes' : 'no' %></div>
-  <div>Rooms: </div>
+  <div>Rating: </div>
   <div><%= appartment.rooms %></div>
-  <div>View: </div>
+  <div>Now Showing: </div>
   <div><%= appartment.view %></div>
   <div>Parking: </div>
-  <div><%= appartment.parking ? 'yes' : 'no' %></div>
+  <div><%= appartment.Parking ? 'yes' : 'no' %></div>
   <div>Services: </div>
-  <div><%= appartment.services %></div>
+  <div><%= appartment.Services %></div>
   <div>Email:</div>
-  <div><%= appartment.email %></div>
+  <div><%= appartment.Email %></div>
+  <div>Reviews: </div>
+  <div><%= appartment.Reviews %></div>
   <div>Price: </div>
-  <div><%= appartment.price %> </div>
+  <div><%= appartment.Price %> </div>
 
   <br><br><h2>Reviews</h2>
   <% if (user) { %>
@@ -64,5 +71,4 @@
   <% } else { %>
     <h5>No Reviews Yet</h5>
   <% } %>
-  
 <%- include('../partials/footer') %>

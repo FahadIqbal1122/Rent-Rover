@@ -48,5 +48,8 @@ const appartmentSchema = new Schema({
     type: String,
   },
   reviews: [reviewSchema],
+  image: {
+    type: String,
+  },
 })
 module.exports = mongoose.model("Appartment", appartmentSchema)

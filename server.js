@@ -6,6 +6,7 @@ var logger = require("morgan")
 var session = require("express-session")
 var passport = require("passport")
 const bodyParser = require("body-parser")
+var methodOverride = require('method-override')
 
 require("dotenv").config()
 require("./config/database")
@@ -27,6 +28,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, "public")))
+app.use(methodOverride('_method'))
 app.use(passport.initialize())
 
 app.use(
