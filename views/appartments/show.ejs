@@ -25,6 +25,13 @@
   <div>Price: </div>
   <div><%= appartment.Price %> </div>
 
+  <% if (user?._id.equals(appartment.user)){ %>
+    <form action="/appartments/<%= appartment._id %>?_method=PUT" method="POST">
+      <input type="text" name="appartment" value="<%= appartment.appartment %>">
+      <button type="submit">Update</button>
+    </form>
+    <% } %>
+
   <br><br><h2>Reviews</h2>
   <% if (user) { %>
   <form id="add-review-form" method="POST"

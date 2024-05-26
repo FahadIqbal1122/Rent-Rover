@@ -1,0 +1,8 @@
+<body>
+  <% if (user?._id.equals(appartment.user)){ %>
+  <form action="/appartments/<%= appartment.id %>?_method=PUT" method="POST" autocomplete="off">
+    <input type="text" name="appartment" value="<%= appartment.appartment %>">
+    <button type="submit">Update Appartment</button>
+  </form>
+  <% } %>
+</body>

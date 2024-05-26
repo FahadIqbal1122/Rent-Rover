@@ -55,10 +55,26 @@ async function deleteAppartment(req, res) {
     
 }
 
+const editAppartment = (req, res) => {
+  const appartment = Appartment.getOne(req.params.id);
+  res.render('appartments/:id', {
+    appartment
+  });
+};
+
+const update = (req, res) => {
+  const appartmentId = req.params.id;
+  updatedappartment = req.body.appartment;
+  Appartment.updateOne(appartmentId, updatedAppartment);
+  res.redirect('/appartments');
+};
+
 module.exports = {
   index,
   show,
   new: newAppartment,
   create,
   delete: deleteAppartment,
+  edit: editAppartment,
+  update,
 }

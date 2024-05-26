@@ -19,7 +19,7 @@ const upload = multer({ storage: storage })
 router.get("/new", appartmentCtrl.new)
 
 router.post("/", upload.single("image"), ensureLoggedIn, appartmentCtrl.create)
-
+router.get('/:id', appartmentCtrl.edit);
 router.delete("/:id", ensureLoggedIn, appartmentCtrl.delete)
 router.get("/", appartmentCtrl.index)
 router.get("/:id", appartmentCtrl.show)
