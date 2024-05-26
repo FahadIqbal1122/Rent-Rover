@@ -8,11 +8,11 @@
   <% } %>
   <div>Building: </div>
   <div><%= appartment.name %></div>
-  <div>Release Year: </div>
+  <div>furnished: </div>
   <div><%= appartment.furnished ? 'yes' : 'no' %></div>
-  <div>Rating: </div>
+  <div>Rooms: </div>
   <div><%= appartment.rooms %></div>
-  <div>Now Showing: </div>
+  <div>Appartment View: </div>
   <div><%= appartment.view %></div>
   <div>Parking: </div>
   <div><%= appartment.Parking ? 'yes' : 'no' %></div>
@@ -48,6 +48,7 @@
     <table>
       <thead>
         <tr>
+          <th>User</th>
           <th>Date</th>
           <th>Review</th>
           <th>Rating</th>
