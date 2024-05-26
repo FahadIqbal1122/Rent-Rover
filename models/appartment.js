@@ -64,5 +64,6 @@ const appartmentSchema = new Schema({
     ref: "User",
     required: true,
   },
+  appartmentServices: [{ type: Schema.Types.ObjectId, ref: "Service" }],
 })
 module.exports = mongoose.model("Appartment", appartmentSchema)

@@ -2,7 +2,7 @@
 <!-- YOUR CODE HERE -->
 <section id="show-page">
   <% if (appartment.image) { %>
-    <img src="<%= URL.format({ pathname: `/uploads/${apartment.image.filename}` }) %>" alt="Apartment Image">
+    <img src=<%=`file://wsl$/Ubuntu-22.04/home/fahad/GA/Projects/Rent-Rover/public/uploads/${appartment.image.filename}`%> alt="Apartment Image">
   <% } else { %>
     <p>No image uploaded for this apartment.</p>
   <% } %>
@@ -64,7 +64,6 @@
                 <button type="submit">Delete</button>
               </form>
             <% } %></td>
-           
           </tr>
         <% }); %>
       </tbody>
