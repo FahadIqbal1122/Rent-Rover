@@ -45,7 +45,6 @@
   
   <% if (appartment.reviews.length) { %>
   
-  <% } else { %>
     <table>
       <thead>
         <tr>
@@ -70,6 +69,8 @@
         <% }); %>
       </tbody>
     </table>
+    <% } else { %>
+
     <h5>No Reviews Yet</h5>
   <% } %>
 <%- include('../partials/footer') %>
