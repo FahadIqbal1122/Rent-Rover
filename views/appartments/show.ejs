@@ -65,10 +65,12 @@
               <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
                 <button type="submit">Delete</button>
               </form>
-            <% } %></td>
-           
+            </td>
+            <td>
+              <a href="/appartments/reviews/editReview<%= review._id %>" class="edit-link">Edit Review</a>
+            </td>
           </tr>
-        <% }); %>
+        <% }}); %>
       </tbody>
     </table>
     <% } else { %>

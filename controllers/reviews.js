@@ -21,6 +21,7 @@ async function create(req, res) {
   }
   res.redirect(`/appartments/${appartment._id}`)
 }
+
 async function deleteReview(req, res) {
   const appartment = await Appartment.findOne({
     'reviews._id': req.params.id,
@@ -31,4 +32,5 @@ async function deleteReview(req, res) {
   await appartment.save()
   res.redirect(`/appartments/${appartment._id}`)
 }
+
 //aaaaaaaaaaaaaasasasasasasasasasasasasasasasasasasasasasassasasasasa
