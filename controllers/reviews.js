@@ -12,12 +12,14 @@ async function create(req, res) {
 
   appartment.reviews.push(req.body)
   try {
-    const updatedAppartment = await appartment.save()
-    res.redirect(`/appartments/${updatedAppartment._id}`)
+    await appartment.save()
+    // const updatedAppartment = await appartment.save()
+    // res.redirect(`/appartments/${updatedAppartment._id}`)
   } catch (err) {
-    console.error(err)
-    res.status(500).send(err.message)
+    console.log(err)
+    // res.status(500).send(err.message)
   }
+  res.redirect(`/appartments/${appartment._id}`)
 }
 async function deleteReview(req, res) {
   const appartment = await Appartment.findOne({
