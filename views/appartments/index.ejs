@@ -1,9 +1,10 @@
 <%- include('../partials/header') %>
-<form action="/appartments" method="GET" class="form-inline" > 
-    <div class ="form-group">
-  <input type ="text" name="search" placeholder="appartment search..." class="form-control" >
-  <input type ="submit" value ="search" class="btn btn-default">
+<form action="/appartments/find" method="GET" class="form-inline">
+  <div class="form-group">
+    <input type="text" name="search" placeholder="Apartment search..." class="form-control">
+    <input type="submit" value="Search" class="btn btn-default">
   </div>
+</form>
 </form>
 
   <% appartments.forEach(function(appartment) { %>
