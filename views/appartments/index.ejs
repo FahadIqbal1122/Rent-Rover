@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+<form action="/appartments" method="GET" class="form-inline" > 
+    <div class ="form-group">
+  <input type ="text" name="search" placeholder="appartment search..." class="form-control" >
+  <input type ="submit" value ="search" class="btn btn-default">
+  </div>
+</form>
+
+  <% appartments.forEach(function(appartment) { %>
+  <div class="boxes">
+    <div class="picture">
+      <img src="https://media.istockphoto.com/id/1165384568/photo/europe-modern-complex-of-residential-buildings.jpg?s=612x612&w=0&k=20&c=iW4NBiMPKEuvaA7h8wIsPHikhS64eR-5EVPfjQ9GPOA=" alt="app1">
+    </div>
+
+    <div class="details">
+        <h3><%= appartment.name %></h3>
+        <p><%= appartment.price%></p>
+        <p><%= appartment.email %></p>
+        <a href="/appartments/<%= appartment._id %>" class="details-link">DETAILS</a>
+
+        <% if (user) { %>
+          <form action="/appartments/<%= appartment._id %>?_method=DELETE" method="POST">
+              <button type="submit">Delete</button>
+          </form>
+      <% } %>
+      </div>
+
+      
+    </div>
+      <% }); %> 
+  
+
+      
+
+    <%- include('../partials/footer') %>

@@ -1,0 +1,75 @@
+<%- include('../partials/header') %>
+<!-- YOUR CODE HERE -->
+<section id="show-page">
+  <% if (appartment.image) { %>
+    <img src="/appartments/<%= appartment.image %>" alt="Apartment Image">
+  <% } else { %>
+    <p>No image uploaded for this apartment.</p>
+  <% } %>
+  <div>Building: </div>
+  <div><%= appartment.name %></div>
+  <div>Release Year: </div>
+  <div><%= appartment.furnished ? 'yes' : 'no' %></div>
+  <div>Rating: </div>
+  <div><%= appartment.rooms %></div>
+  <div>Now Showing: </div>
+  <div><%= appartment.view %></div>
+  <div>Parking: </div>
+  <div><%= appartment.Parking ? 'yes' : 'no' %></div>
+  <div>Services: </div>
+  <div><%= appartment.Services %></div>
+  <div>Email:</div>
+  <div><%= appartment.Email %></div>
+  <div>Reviews: </div>
+  <div><%= appartment.Reviews %></div>
+  <div>Price: </div>
+  <div><%= appartment.Price %> </div>
+
+  <br><br><h2>Reviews</h2>
+  <% if (user) { %>
+  <form id="add-review-form" method="POST"
+    action="/appartments/<%= appartment._id %>/reviews">
+    <label>Review:</label>
+    <textarea name="content"></textarea>
+    <label>Rating:</label>
+    <select name="rating">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5" selected>5</option>
+    </select>
+    <input type="submit" value="Add Review">
+  </form>
+  <% } %>
+  
+  <% if (appartment.reviews.length) { %>
+  
+  <% } else { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Review</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% appartment.reviews.forEach(function(review) { %>
+          <tr>
+            <td class="review-user"><img alt="avatar" src="<%= review.userAvatar %>" referrerpolicy="no-referrer" ><%= review.userName %></td>
+            <td><%= review.createdAt.toLocaleDateString() %></td>
+            <td><%= review.content %></td>
+            <td><%= review.rating %></td>
+            <% if (user?._id.equals(review.user)) { %>
+              <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete</button>
+              </form>
+            <% } %>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <h5>No Reviews Yet</h5>
+  <% } %>
+<%- include('../partials/footer') %>
