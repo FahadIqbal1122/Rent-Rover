@@ -1,12 +1,14 @@
 <%- include('../partials/header') %>
-<form id ="new-form" action = "/appartments" method ="POST">
-<label> Name</label> 
-<input type ="text" name ="name">
+<form id ="new-form" action = "/appartments" method ="POST" enctype="multipart/form-data">
+<label>Image</label>
+<input type="file" accept="image/*" name="image">
+<label>Name</label> 
+<input type ="text" name ="name"><br>
 <label>Furnished</label>
 <select name="furnished">
   <option value="true">Yes</option>
   <option value="false">No</option>
-</select>
+</select><br>
 <label>Rooms</label>
 <select name="rooms">
   <option value="1">1</option>
@@ -17,16 +19,16 @@
   <option value="6">6</option>
   <option value="7">7</option>
   <option value="8">8</option>
-</select>
+</select><br>
 <label>View</label>
 <select name="view">
   <option value="seaView">seaView</option>
   <option value="gardenView">gardenView</option>
   <option value="pentHouse">pentHouse</option>
   <option value ="normalView">normalView</option>
-</select>
+</select><br>
 <label>Price</label>
-<input type="number" name="price">
+<input type="number" name="price"><br>
 <label>Services</label>
 <select name ="services">
   <option value="Internet">Internet</option>
@@ -37,11 +39,19 @@
   <option value="Gym">Gym</option>
   <option value="Security">Security</option>
   <option value="online rent payments">Online rent payments</option>
-</select>
+</select><br>
 <label>Email</label>
-<input type ="text" name="email">
+<input type ="text" name="email"><br>
 <label>Parking</label>
-<input type="checkbox" name="parking">
+<input type="checkbox" name="parking"><br>
 <input type="submit"   name="Add Appartment">
 </form>
+
+<form action="/appartments" method="GET" class="form-inline">
+  <div class ="form-group">
+    <input name ="q"type="text"class="form control" placeholder="appartment search...">
+    <input type ="submit" class="btn btn-default" value="search">
+  </div>
+</form>
+
 <%- include('../partials/footer') %>
