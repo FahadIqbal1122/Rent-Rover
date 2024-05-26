@@ -49,8 +49,12 @@ async function create(req, res) {
 }
 
 async function deleteAppartment(req, res) {
-      await Appartment.findByIdAndDelete(req.params.id);
-      res.redirect('/appartments'); 
+  const appartment = await Appartment.findOne({ 'appartments._id': req.params.id, 'appartments.user': req.user._id });
+  if (!appartment) return res.redirect('/appartments');
+  appartment.reviews.remove(req.params.id);
+  await appartment.save();
+
+  res.redirect(`/appartments/${appartment._id}`);
     
 }
 
