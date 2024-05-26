@@ -5,9 +5,20 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+  <header class="header">
     <% if (user) { %>
-    <nav><a href="/">Home</a> | <a href="/appartments/">All Appartments</a> | <a href="/appartments/new">New Appartment</a> | <a href="/logout">LOG OUT</a>
-      <% } else { %>
-        <a href="/appartments/">All Appartments</a> | 
-        <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+      <nav>
+    <div class="app-name">Rent Rover</div>
+    <div class="user-name">Welcome,<%= user.name %> </div>
+    <ul class="nav-bar">
+        <li><a href="/">Home</a></li>
+        <li><a href="/appartments/">All Appartments</a></li>
+        <li><a href="/appartments/new">New Appartment</a></li>
+        <li><a href="/logout">LOG OUT</a></li>
+    </ul>
+    <% } else { %>
+      <a href="/appartments/">All Appartments</a> | 
+      <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
       <% } %></nav>
+</header>
+  </body>
