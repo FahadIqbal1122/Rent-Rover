@@ -4,14 +4,14 @@
 }
 body {
   padding: 30px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
   background-color: grey;
 }
 
 a {
   color: #00b7ff;
 }
-#new-form input[type="submit"] {
+#new-form input[type='submit'] {
   grid-column: span 2;
   width: 10rem;
   margin-left: auto;
@@ -45,3 +45,14 @@ body > nav {
   height: 50px;
   width: 40px;
 } */
+
+.review-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-user img {
+  border-radius: 50%;
+  height: 40px;
+}

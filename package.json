@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node --watch ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -21,6 +21,7 @@
     "node": "^18.20.3",
     "passport": "^0.7.0",
     "passport-google-oauth": "^2.0.0",
+    "session": "^0.1.0",
     "stable": "^0.1.8"
   }
 }

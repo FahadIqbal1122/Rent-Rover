@@ -36,6 +36,9 @@ async function create(req, res) {
     if (appartment.image) {
       appartment.image = req.file.image
     }
+    appartment.user = req.user._id
+    appartment.userName = req.user.name
+    appartment.userAvatar = req.user.avatar
     const newAppartment = await appartment.save()
     console.log(newAppartment)
     res.redirect(`/appartments/${newAppartment._id}`)
