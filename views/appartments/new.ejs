@@ -1,75 +1,47 @@
 <%- include('../partials/header') %>
-<!-- YOUR CODE HERE -->
-<section id="show-page">
-  <% if (appartment.image) { %>
-    <img src="/appartments/<%= appartment.image %>" alt="Apartment Image">
-  <% } else { %>
-    <p>No image uploaded for this apartment.</p>
-  <% } %>
-  <div>Building: </div>
-  <div><%= appartment.name %></div>
-  <div>Release Year: </div>
-  <div><%= appartment.furnished ? 'yes' : 'no' %></div>
-  <div>Rating: </div>
-  <div><%= appartment.rooms %></div>
-  <div>Now Showing: </div>
-  <div><%= appartment.view %></div>
-  <div>Parking: </div>
-  <div><%= appartment.Parking ? 'yes' : 'no' %></div>
-  <div>Services: </div>
-  <div><%= appartment.Services %></div>
-  <div>Email:</div>
-  <div><%= appartment.Email %></div>
-  <div>Reviews: </div>
-  <div><%= appartment.Reviews %></div>
-  <div>Price: </div>
-  <div><%= appartment.Price %> </div>
-
-  <br><br><h2>Reviews</h2>
-  <% if (user) { %>
-  <form id="add-review-form" method="POST"
-    action="/appartments/<%= appartment._id %>/reviews">
-    <label>Review:</label>
-    <textarea name="content"></textarea>
-    <label>Rating:</label>
-    <select name="rating">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5" selected>5</option>
-    </select>
-    <input type="submit" value="Add Review">
-  </form>
-  <% } %>
-  
-  <% if (appartment.reviews.length) { %>
-  
-  <% } else { %>
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Review</th>
-          <th>Rating</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% appartment.reviews.forEach(function(review) { %>
-          <tr>
-            <td class="review-user"><img alt="avatar" src="<%= review.userAvatar %>" referrerpolicy="no-referrer" ><%= review.userName %></td>
-            <td><%= review.createdAt.toLocaleDateString() %></td>
-            <td><%= review.content %></td>
-            <td><%= review.rating %></td>
-            <% if (user?._id.equals(review.user)) { %>
-              <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete</button>
-              </form>
-            <% } %>
-          </tr>
-        <% }); %>
-      </tbody>
-    </table>
-    <h5>No Reviews Yet</h5>
-  <% } %>
+<form id ="new-form" action = "/appartments" method ="POST">
+<label> Name</label> 
+<input type ="text" name ="name">
+<label>Furnished</label>
+<select name="furnished">
+  <option value="true">Yes</option>
+  <option value="false">No</option>
+</select>
+<label>Rooms</label>
+<select name="rooms">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+</select>
+<label>View</label>
+<select name="view">
+  <option value="seaView">seaView</option>
+  <option value="gardenView">gardenView</option>
+  <option value="pentHouse">pentHouse</option>
+  <option value ="normalView">normalView</option>
+</select>
+<label>Price</label>
+<input type="number" name="price">
+<label>Services</label>
+<select name ="services">
+  <option value="Internet">Internet</option>
+  <option value ="Laundry facilities">Laundry facilities</option>
+  <option value="Air conditioning">Air conditioning</option>
+  <option value="Room Service">Room Service</option>
+  <option value="Mainenance">Maintenance</option>
+  <option value="Gym">Gym</option>
+  <option value="Security">Security</option>
+  <option value="online rent payments">Online rent payments</option>
+</select>
+<label>Email</label>
+<input type ="text" name="email">
+<label>Parking</label>
+<input type="checkbox" name="parking">
+<input type="submit"   name="Add Appartment">
+</form>
 <%- include('../partials/footer') %>
