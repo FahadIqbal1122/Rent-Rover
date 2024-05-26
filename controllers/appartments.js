@@ -70,7 +70,7 @@ async function findAppartment(req, res) {
         name: { $regex: new RegExp(searchQuery, "i") }, // Case-insensitive search
       })
     } else {
-      appartments = await Appartment.find() // Find all apartments
+      appartments = await Appartment.find()
     }
 
     // Render the search results on the index page
@@ -118,8 +118,13 @@ async function create(req, res) {
     } else {
       appartment.parking = false
     }
-    if (appartment.image) {
-      appartment.image = req.file.image
+    if (req.file) {
+      const image = new Image({
+        filename: req.file.originalname,
+        contentType: req.file.mimetype,
+      })
+      const savedImage = await image.saveImage()
+      apartment.image = savedImage._id
     }
     appartment.user = req.user._id
     appartment.userName = req.user.name

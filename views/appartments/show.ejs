@@ -2,7 +2,7 @@
 <!-- YOUR CODE HERE -->
 <section id="show-page">
   <% if (appartment.image) { %>
-    <img src="/appartments/<%= appartment.image %>" alt="Apartment Image">
+    <img src="<%= URL.format({ pathname: `/uploads/${apartment.image.filename}` }) %>" alt="Apartment Image">
   <% } else { %>
     <p>No image uploaded for this apartment.</p>
   <% } %>
