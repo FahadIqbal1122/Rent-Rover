@@ -13,6 +13,13 @@ const reviewSchema = new mongoose.Schema(
       max: 5,
       default: 5,
     },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    userName: String,
+    userAvatar: String,
   },
   {
     timestamps: true,
@@ -49,7 +56,13 @@ const appartmentSchema = new Schema({
   },
   reviews: [reviewSchema],
   image: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: "Image",
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
   },
 })
 module.exports = mongoose.model("Appartment", appartmentSchema)

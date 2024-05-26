@@ -2,28 +2,26 @@
 <!-- YOUR CODE HERE -->
 <section id="show-page">
   <% if (appartment.image) { %>
-    <img src="/appartments/<%= appartment.image %>" alt="Apartment Image">
+    <img src="<%= URL.format({ pathname: `/uploads/${apartment.image.filename}` }) %>" alt="Apartment Image">
   <% } else { %>
     <p>No image uploaded for this apartment.</p>
   <% } %>
   <div>Building: </div>
   <div><%= appartment.name %></div>
-  <div>Release Year: </div>
+  <div>furnished: </div>
   <div><%= appartment.furnished ? 'yes' : 'no' %></div>
-  <div>Rating: </div>
+  <div>Rooms: </div>
   <div><%= appartment.rooms %></div>
-  <div>Now Showing: </div>
+  <div>Appartment View: </div>
   <div><%= appartment.view %></div>
   <div>Parking: </div>
-  <div><%= appartment.Parking ? 'yes' : 'no' %></div>
+  <div><%= appartment.parking ? 'yes' : 'no' %></div>
   <div>Services: </div>
-  <div><%= appartment.Services %></div>
+  <div><%= appartment.services %></div>
   <div>Email:</div>
-  <div><%= appartment.Email %></div>
-  <div>Reviews: </div>
-  <div><%= appartment.Reviews %></div>
+  <div><%= appartment.email %></div>
   <div>Price: </div>
-  <div><%= appartment.Price %> </div>
+  <div><%= appartment.price %> </div>
 
   <br><br><h2>Reviews</h2>
   <% if (user) { %>
@@ -44,9 +42,11 @@
   <% } %>
   
   <% if (appartment.reviews.length) { %>
+  
     <table>
       <thead>
         <tr>
+          <th>User</th>
           <th>Date</th>
           <th>Review</th>
           <th>Rating</th>
@@ -59,16 +59,18 @@
             <td><%= review.createdAt.toLocaleDateString() %></td>
             <td><%= review.content %></td>
             <td><%= review.rating %></td>
-            <% if (user?._id.equals(review.user)) { %>
+            <td> <% if (user?._id.equals(review.user)) { %>
               <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
-                <button type="submit">X</button>
+                <button type="submit">Delete</button>
               </form>
-            <% } %>
+            <% } %></td>
+           
           </tr>
         <% }); %>
       </tbody>
     </table>
-  <% } else { %>
+    <% } else { %>
+
     <h5>No Reviews Yet</h5>
   <% } %>
   
