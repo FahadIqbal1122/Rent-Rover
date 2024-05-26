@@ -1,5 +1,7 @@
 <%- include('../partials/header') %>
-<form id ="new-form" action = "/appartments" method ="POST">
+<form id ="new-form" action = "/appartments" method ="POST" enctype="multipart/form-data">
+  <label>Image</label>
+  <input type="file" name="image" id="image">
 <label> Name</label> 
 <input type ="text" name ="name">
 <label>Furnished</label>
@@ -44,4 +46,5 @@
 <input type="checkbox" name="parking">
 <input type="submit"   name="Add Appartment">
 </form>
+
 <%- include('../partials/footer') %>
