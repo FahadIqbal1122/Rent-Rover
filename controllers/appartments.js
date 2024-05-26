@@ -46,12 +46,14 @@ async function create(req, res) {
 }
 
 async function deleteAppartment(req, res) {
-  if (!Appartment.user.equals(req.user._id)) {
-    return res.status(403).send('You are not authorized to delete this apartment');
-}
-      await Appartment.findByIdAndDelete(req.params.id);
-      res.redirect('/appartments'); 
-    
+  if (!Appartment.user === req.user._id) {
+    return res
+      .status(403)
+      .send("You are not authorized to delete this apartment")
+  } else {
+    await Appartment.findByIdAndDelete(req.params.id)
+    res.redirect("/appartments")
+  }
 }
 
 module.exports = {

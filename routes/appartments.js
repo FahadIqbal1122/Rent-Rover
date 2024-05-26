@@ -1,5 +1,6 @@
 const express = require("express")
 const router = express.Router()
+const ensureLoggedIn = require("../config/ensureLoggedIn")
 // Credit for multer = https://www.npmjs.com/package/multer
 const multer = require("multer")
 const appartmentCtrl = require("../controllers/appartments")
@@ -17,11 +18,9 @@ const upload = multer({ storage: storage })
 
 router.get("/new", appartmentCtrl.new)
 
-router.post("/", upload.single("image"), appartmentCtrl.create)
-router.delete('/:id', appartmentCtrl.delete);
+router.post("/", upload.single("image"), ensureLoggedIn, appartmentCtrl.create)
 
-
-
+router.delete("/:id", ensureLoggedIn, appartmentCtrl.delete)
 router.get("/", appartmentCtrl.index)
 router.get("/:id", appartmentCtrl.show)
 
