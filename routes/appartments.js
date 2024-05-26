@@ -22,6 +22,7 @@ router.post("/", upload.single("image"), ensureLoggedIn, appartmentCtrl.create)
 router.get('/:id', appartmentCtrl.edit);
 router.delete("/:id", ensureLoggedIn, appartmentCtrl.delete)
 router.get("/", appartmentCtrl.index)
+router.get("/find", appartmentCtrl.findAppartment)
 router.get("/:id", appartmentCtrl.show)
 
 module.exports = router
