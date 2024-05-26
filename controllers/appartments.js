@@ -1,8 +1,8 @@
 const Appartment = require("../models/appartment")
 
 async function index(req, res) {
-  const appartments = await Movie.find({})
-  res.render("appartments/index", { title: "All Appartments", movies })
+  const appartments = await Appartment.find({})
+  res.render("appartments/index", { title: "All Appartments", appartments })
 }
 
 async function show(req, res) {
@@ -16,10 +16,43 @@ function newAppartment(req, res) {
 
 async function create(req, res) {
   try {
-    res.redirect("/appartments")
+    const appartment = new Appartment(req.body)
+    if (appartment.name) {
+      appartment.name = appartment.name.toUpperCase()
+    }
+    if (req.body.price) {
+      appartment.price = appartment.price.toString()
+    }
+    if (req.body.furnished === "true") {
+      appartment.furnished = true
+    } else {
+      appartment.furnished = false
+    }
+    if (req.body.parking === "on") {
+      appartment.parking = true
+    } else {
+      appartment.parking = false
+    }
+    if (appartment.image) {
+      appartment.image = req.file.image
+    }
+    const newAppartment = await appartment.save()
+    console.log(newAppartment)
+    res.redirect(`/appartments/${newAppartment._id}`)
   } catch (err) {
     console.log(err)
     res.render("appartments/new", { errorMsg: err.message })
+  }
+}
+
+async function deleteAppartment(req, res) {
+  if (!Appartment.user === req.user._id) {
+    return res
+      .status(403)
+      .send("You are not authorized to delete this apartment")
+  } else {
+    await Appartment.findByIdAndDelete(req.params.id)
+    res.redirect("/appartments")
   }
 }
 
@@ -28,4 +61,5 @@ module.exports = {
   show,
   new: newAppartment,
   create,
+  delete: deleteAppartment,
 }
