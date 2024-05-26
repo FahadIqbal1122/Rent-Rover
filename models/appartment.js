@@ -56,5 +56,6 @@ const appartmentSchema = new Schema({
     ref: "User",
     required: true,
   },
+  userName: String,
 })
 module.exports = mongoose.model("Appartment", appartmentSchema)
