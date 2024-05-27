@@ -17,19 +17,24 @@
 ### **Find Your Appartment App**
 
 #### This App will be for users who are looking for appartments for rent depending on their requierments.
-#### It also allows user to see appartment details such as: Fruneture, Rooms, Appartment View, Parking, Services and Price. 
-#### The app can track client payments and have payment history to see who is late for rent or who paid extra and subtract it from next rent 
+
+#### It also allows user to see appartment details such as: Fruneture, Rooms, Appartment View, Parking, Services and Price.
+
+#### The app can track client payments and have payment history to see who is late for rent or who paid extra and subtract it from next rent
 
 ---
 
 ## **_Technologies used_**
 
 ### - Front-end
+
 #### - HTML - CSS - Javascript
 
 ### - Back-end
+
 #### - Express
-#### - Frameworks: Node.js - Databases:  MongoDB - Google Authorization
+
+#### - Frameworks: Node.js - Databases: MongoDB - Google Authorization
 
 ---
 
@@ -50,9 +55,14 @@
 ---
 
 ### **_Future Updates_**
-####  subscribers will be able to display their properties to sell or rent.
+
+#### subscribers will be able to display their properties to sell or rent.
+
 ---
 
 ### **_Credits_**
+
+![Multer for image uploads](https://www.npmjs.com/package/multer)
+![Regex for search feature](https://stackoverflow.com/questions/39614608/search-query-in-mongodb-using-regular-expression)
 
 ---

@@ -1,8 +1,8 @@
 <%- include('../partials/header') %>
 <!-- YOUR CODE HERE -->
 <section id="show-page">
-  <% if (appartment.image) { %>
-    <img src="<%= URL.format({ pathname: `/uploads/${apartment.image.filename}` }) %>" alt="Apartment Image">
+  <% if (appartment.image && appartment.image.filename) { %>
+    <img src="/uploads/<%= appartment.image.filename %>" alt="Appartment Image">
   <% } else { %>
     <p>No image uploaded for this apartment.</p>
   <% } %>
@@ -67,6 +67,7 @@
             <td>
               <a href="/appartments/reviews/editReview<%= review._id %>" class="edit-link">Edit Review</a>
             </td>
+
           </tr>
         <% }}); %>
       </tbody>
