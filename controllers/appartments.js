@@ -64,14 +64,6 @@ async function create(req, res) {
   }
 }
 
-async function deleteAppartment(req, res) {
-  const appartment = await Appartment.deleteOne({
-    _id: req.params.id,
-    user: req.user._id,
-  })
-  res.redirect("/appartments")
-}
-
 async function findAppartment(req, res) {
   try {
     const searchQuery = req.query.search.toUpperCase()
@@ -87,7 +79,16 @@ async function findAppartment(req, res) {
     res.status(500).send("Error searching appartments.")
   }
 }
+async function deleteAppartment(req, res) {
+  const appartment = await Appartment.deleteOne({
+    _id: req.params.id,
+    user: req.user._id,
+  })
+  res.redirect("/appartments")
+}
 
+ 
+}
 module.exports = {
   index,
   show,
