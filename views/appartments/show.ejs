@@ -25,6 +25,10 @@
   <div>Price: </div>
   <div><%= appartment.price %> </div>
 
+  <% if (user?._id.equals(appartment.user)){ %>
+    <a href="/appartments/<%= appartment.id %>/edit">Edit</a>
+    <% } %>
+
   <br><br><h2>Reviews</h2>
   <% if (user) { %>
   <form id="add-review-form" method="POST"
