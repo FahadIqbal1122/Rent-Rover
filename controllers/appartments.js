@@ -87,8 +87,6 @@ async function deleteAppartment(req, res) {
   res.redirect("/appartments")
 }
 
- 
-}
 module.exports = {
   index,
   show,

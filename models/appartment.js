@@ -51,6 +51,9 @@ const appartmentSchema = new Schema({
   services: {
     type: [],
   },
+  city: {
+    type: String,
+  },
   email: {
     type: String,
   },
