@@ -1,14 +1,12 @@
-<<<<<<< HEAD
-const Appartment = require('../models/appartment')
-=======
+
 const Appartment = require("../models/appartment")
 const Image = require("../models/Image")
->>>>>>> 6d6f99c6bac0a382a4fbf0e7b3d612d26cbe55c5
 
 async function index(req, res) {
   const appartments = await Appartment.find({})
   res.render('appartments/index', { title: 'All Appartments', appartments })
 }
+
 
 async function show(req, res) {
   const appartment = await Appartment.findById(req.params.id)
@@ -38,9 +36,20 @@ async function create(req, res) {
     } else {
       appartment.parking = false
     }
-    if (Image.image) {
-      Image.file = req.file.image
+    if (req.file) {
+      const image = new Image({
+        filename: req.file.originalname,
+        contentType: req.file.mimetype,
+        data: req.file.buffer,
+      })
+      try {
+        const savedImage = await image.save()
+        appartment.image = savedImage._id
+      } catch (error) {
+        console.error("Error saving image:", error)
+      }
     }
+
     appartment.user = req.user._id
     appartment.userName = req.user.name
     appartment.userAvatar = req.user.avatar
@@ -57,25 +66,23 @@ async function deleteAppartment(req, res) {
   if (!Appartment.user === req.user._id) {
     return res
       .status(403)
-<<<<<<< HEAD
+
       .send('You are not authorized to delete this apartment')
-=======
-      .send("You are not authorized to delete this appartment")
->>>>>>> 6d6f99c6bac0a382a4fbf0e7b3d612d26cbe55c5
   } else {
     await Appartment.findByIdAndDelete(req.params.id)
     res.redirect('/appartments')
   }
 }
 
+// credit regex: https://stackoverflow.com/questions/39614608/search-query-in-mongodb-using-regular-expression
 async function findAppartment(req, res) {
   try {
-    const searchQuery = req.query.search
+    const searchQuery = req.query.search.toUpperCase()
     let appartments
 
     if (searchQuery) {
       appartments = await Appartment.find({
-        name: { $regex: new RegExp(searchQuery, "i") }, // Case-insensitive search
+        name: { $regex: searchQuery },
       })
     } else {
       appartments = await Appartment.find()
@@ -99,8 +106,20 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-  const appartment = await Appartment.findById(req.params.id)
-  res.render("appartments/show", { title: "Appartment Detail", appartment })
+  try {
+    const appartment = await Appartment.findById(req.params.id).populate(
+      "image"
+    )
+    console.log(`Apartment ${JSON.stringify(appartment, null, 2)}`)
+
+    if (!appartment) {
+      return res.status(404).send("Apartment not found")
+    }
+    res.render("appartments/show", { title: "Appartment Detail", appartment })
+  } catch (error) {
+    console.error(error)
+    res.status(500).send("Error fetching apartment details")
+  }
 }
 
 function newAppartment(req, res) {
@@ -131,8 +150,9 @@ async function create(req, res) {
         filename: req.file.originalname,
         contentType: req.file.mimetype,
       })
-      const savedImage = await image.saveImage()
-      apartment.image = savedImage._id
+
+      const savedImage = await image.save()
+      appartment.image = savedImage._id
     }
     appartment.user = req.user._id
     appartment.userName = req.user.name
@@ -160,10 +180,6 @@ module.exports = {
   show,
   new: newAppartment,
   create,
-<<<<<<< HEAD
-  delete: deleteAppartment
-=======
   delete: deleteAppartment,
   findAppartment,
->>>>>>> 6d6f99c6bac0a382a4fbf0e7b3d612d26cbe55c5
 }
