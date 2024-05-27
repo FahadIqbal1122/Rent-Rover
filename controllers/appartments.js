@@ -65,7 +65,6 @@ async function create(req, res) {
   }
 }
 
-
 async function findAppartment(req, res) {
   try {
     const searchQuery = req.query.search.toUpperCase()
@@ -88,6 +87,7 @@ async function deleteAppartment(req, res) {
   })
 
   res.redirect('/appartments')
+
 }
 
 const editAppartment = async (req, res) => {
