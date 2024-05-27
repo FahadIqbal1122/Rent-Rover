@@ -23,8 +23,6 @@ async function show(req, res) {
   } catch (error) {
     console.error('Error fetching apartment details:', error)
     res.status(500).send('Error fetching apartment details.')
-    console.error(error)
-    res.status(500).send('Error fetching apartment details')
   }
 }
 
@@ -45,16 +43,6 @@ async function create(req, res) {
     appartment.furnished = req.body.furnished === 'true'
     appartment.parking = req.body.parking === 'on'
 
-    if (req.body.furnished === 'true') {
-      appartment.furnished = true
-    } else {
-      appartment.furnished = false
-    }
-    if (req.body.parking === 'on') {
-      appartment.parking = true
-    } else {
-      appartment.parking = false
-    }
     if (req.file) {
       const image = new Image({
         filename: req.file.originalname,
