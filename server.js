@@ -16,7 +16,6 @@ var indexRouter = require("./routes/index")
 var usersRouter = require("./routes/users")
 const reviewsRouter = require("./routes/reviews")
 var appartmentsRouter = require("./routes/appartments")
-// const optionRouter = require("./routes/options")
 
 var app = express()
 
@@ -54,7 +53,6 @@ app.use("/", indexRouter)
 app.use("/users", usersRouter)
 app.use("/appartments", appartmentsRouter)
 app.use("/", reviewsRouter)
-// app.use("/options", optionRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
