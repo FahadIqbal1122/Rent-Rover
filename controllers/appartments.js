@@ -2,97 +2,28 @@ const Appartment = require("../models/appartment")
 const Image = require("../models/Image")
 
 async function index(req, res) {
-  const appartments = await Appartment.find({})
-  res.render("appartments/index", { title: "All Appartments", appartments })
-}
-
-async function show(req, res) {
-  const appartment = await Appartment.findById(req.params.id)
-  res.render("appartments/show", { title: "Appartment Detail", appartment })
-}
-
-function newAppartment(req, res) {
-  res.render("appartments/new", { title: "Add Appartment", errorMsg: "" })
-}
-
-async function create(req, res) {
   try {
-    const appartment = new Appartment(req.body)
-    if (appartment.name) {
-      appartment.name = appartment.name.toUpperCase()
-    }
-    if (req.body.price) {
-      appartment.price = appartment.price.toString()
-    }
-    if (req.body.furnished === "true") {
-      appartment.furnished = true
-    } else {
-      appartment.furnished = false
-    }
-    if (req.body.parking === "on") {
-      appartment.parking = true
-    } else {
-      appartment.parking = false
-    }
-    if (Image.image) {
-      Image.file = req.file.image
-    }
-    appartment.user = req.user._id
-    appartment.userName = req.user.name
-    appartment.userAvatar = req.user.avatar
-    const newAppartment = await appartment.save()
-    console.log(newAppartment)
-    res.redirect(`/appartments/${newAppartment._id}`)
-  } catch (err) {
-    console.log(err)
-    res.render("appartments/new", { errorMsg: err.message })
-  }
-}
-
-async function deleteAppartment(req, res) {
-  if (!Appartment.user === req.user._id) {
-    return res
-      .status(403)
-      .send("You are not authorized to delete this appartment")
-  } else {
-    await Appartment.findByIdAndDelete(req.params.id)
-    res.redirect("/appartments")
-  }
-}
-
-async function findAppartment(req, res) {
-  try {
-    const searchQuery = req.query.search
-    let appartments
-
-    if (searchQuery) {
-      appartments = await Appartment.find({
-        name: { $regex: new RegExp(searchQuery, "i") }, // Case-insensitive search
-      })
-    } else {
-      appartments = await Appartment.find()
-    }
-
-    // Render the search results on the index page
-    res.render("appartments/index.ejs", { appartments: appartments })
+    const appartments = await Appartment.find({}).populate("image")
+    res.render("appartments/index", { title: "All Appartments", appartments })
   } catch (error) {
-    console.error("Error searching appartments:", error)
-    if (error.name === "MongoError") {
-      res.status(500).send("Database error occurred.")
-    } else {
-      res.status(500).send("Error searching appartments.")
-    }
+    console.error("Error fetching appartments:", error)
+    res.status(500).send("Error fetching appartments.")
   }
 }
 
-async function index(req, res) {
-  const appartments = await Appartment.find({})
-  res.render("appartments/index", { title: "All Appartments", appartments })
-}
-
 async function show(req, res) {
-  const appartment = await Appartment.findById(req.params.id)
-  res.render("appartments/show", { title: "Appartment Detail", appartment })
+  try {
+    const appartment = await Appartment.findById(req.params.id).populate(
+      "image"
+    )
+    if (!appartment) {
+      return res.status(404).send("Apartment not found")
+    }
+    res.render("appartments/show", { title: "Appartment Detail", appartment })
+  } catch (error) {
+    console.error("Error fetching apartment details:", error)
+    res.status(500).send("Error fetching apartment details.")
+  }
 }
 
 function newAppartment(req, res) {
@@ -108,24 +39,19 @@ async function create(req, res) {
     if (req.body.price) {
       appartment.price = appartment.price.toString()
     }
-    if (req.body.furnished === "true") {
-      appartment.furnished = true
-    } else {
-      appartment.furnished = false
-    }
-    if (req.body.parking === "on") {
-      appartment.parking = true
-    } else {
-      appartment.parking = false
-    }
+    appartment.furnished = req.body.furnished === "true"
+    appartment.parking = req.body.parking === "on"
+
     if (req.file) {
       const image = new Image({
         filename: req.file.originalname,
         contentType: req.file.mimetype,
+        data: req.file.buffer,
       })
-      const savedImage = await image.saveImage()
-      apartment.image = savedImage._id
+      const savedImage = await image.save()
+      appartment.image = savedImage._id
     }
+
     appartment.user = req.user._id
     appartment.userName = req.user.name
     appartment.userAvatar = req.user.avatar
@@ -133,32 +59,48 @@ async function create(req, res) {
     console.log(newAppartment)
     res.redirect(`/appartments/${newAppartment._id}`)
   } catch (err) {
-    console.log(err)
+    console.error("Error creating appartment:", err)
     res.render("appartments/new", { errorMsg: err.message })
   }
 }
 
+
+async function findAppartment(req, res) {
+  try {
+    const searchQuery = req.query.search.toUpperCase()
+    let appartments
+    if (searchQuery) {
+      appartments = await Appartment.find({ name: { $regex: searchQuery } })
+    } else {
+      appartments = await Appartment.find()
+    }
+    res.render("appartments/index.ejs", { appartments: appartments })
+  } catch (error) {
+    console.error("Error searching appartments:", error)
+    res.status(500).send("Error searching appartments.")
+  }
+}
 async function deleteAppartment(req, res) {
   const appartment = await Appartment.deleteOne({
     _id: req.params.id,
     user: req.user._id,
   })
 
-  res.redirect(`/appartments`)
+  res.redirect('/appartments')
 }
 
 const editAppartment = (req, res) => {
-  const appartment = Appartment.getOne(req.params.id);
-  res.render('appartments/:id', {
+  const appartment = Appartment.findOne({_id: req.params.id});
+  res.render('appartments/edit', {
     appartment
   });
 };
 
 const update = (req, res) => {
-  const appartmentId = req.params.id;
+  appartmentId = req.params.id;
   updatedappartment = req.body.appartment;
   Appartment.updateOne(appartmentId, updatedAppartment);
-  res.redirect('/appartments');
+  res.redirect('/appartments/:id');
 };
 
 module.exports = {
@@ -167,6 +109,7 @@ module.exports = {
   new: newAppartment,
   create,
   delete: deleteAppartment,
-  editAppartment,
-  update
+  edit: editAppartment,
+  update,
+  findAppartment
 }

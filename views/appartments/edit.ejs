@@ -1,8 +1,55 @@
 <body>
-  <% if (user?._id.equals(appartment.user)){ %>
   <form action="/appartments/<%= appartment.id %>?_method=PUT" method="POST" autocomplete="off">
-    <input type="text" name="appartment" value="<%= appartment.appartment %>">
+
+    <label> Name</label> 
+    <input type="text" name="name" value="<%= appartment.name %>">
+
+    <label>Furnished</label>
+    <select name="furnished">
+    <option value="true">Yes</option>
+    <option value="false">No</option>
+    </select>  
+
+    <label>Rooms</label>
+    <select name="rooms">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    </select>
+
+    <label>View</label>
+    <select name="view">
+    <option value="seaView">seaView</option>
+    <option value="gardenView">gardenView</option>
+    <option value="pentHouse">pentHouse</option>
+    <option value ="normalView">normalView</option>
+    </select>
+
+    <label>Price</label>
+    <input type="number" name="price">
+
+    <label for="Services">services</label>
+    <select name="services" id="services" multiple>
+    <option value="Internet">Internet</option>
+    <option value="Laundry facilities">Laundry facilities</option>
+    <option value="Air conditioning">Air conditioning</option>
+    <option value="Room Service">Room Service</option>
+    <option value="Gym">Gym</option>
+    <option value="Security">Security</option>
+    <option value="Online rent payment">Online rent payment</option>
+    </select>
+
+   <label>Email</label>
+   <input type ="text" name="email">
+
+   <label>Parking</label>
+   <input type="checkbox" name="parking">
+
     <button type="submit">Update Appartment</button>
   </form>
-  <% } %>
 </body>

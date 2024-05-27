@@ -1,8 +1,8 @@
 <%- include('../partials/header') %>
 <!-- YOUR CODE HERE -->
 <section id="show-page">
-  <% if (appartment.image) { %>
-    <img src="<%= URL.format({ pathname: `/uploads/${apartment.image.filename}` }) %>" alt="Apartment Image">
+  <% if (appartment.image && appartment.image.filename) { %>
+    <img src="/uploads/<%= appartment.image.filename %>" alt="Appartment Image">
   <% } else { %>
     <p>No image uploaded for this apartment.</p>
   <% } %>
@@ -24,10 +24,7 @@
   <div><%= appartment.price %> </div>
 
   <% if (user?._id.equals(appartment.user)){ %>
-    <form action="/appartments/<%= appartment._id %>?_method=PUT" method="POST">
-      <input type="text" name="appartment" value="<%= appartment.appartment %>">
-      <button type="submit">Update</button>
-    </form>
+    <a href="/appartments/<%= appartment.id %>/edit">Edit</a>
     <% } %>
 
   <br><br><h2>Reviews</h2>
@@ -70,14 +67,18 @@
               <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
                 <button type="submit">Delete</button>
               </form>
-            <% } %></td>
-           
+            </td>
+            <td>
+              <a href="/appartments/reviews/editReview<%= review._id %>" class="edit-link">Edit Review</a>
+            </td>
+
           </tr>
-        <% }); %>
+        <% }}); %>
       </tbody>
     </table>
     <% } else { %>
 
     <h5>No Reviews Yet</h5>
   <% } %>
+  
 <%- include('../partials/footer') %>
