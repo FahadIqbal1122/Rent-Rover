@@ -84,8 +84,10 @@ async function deleteAppartment(req, res) {
     _id: req.params.id,
     user: req.user._id,
   })
-
   res.redirect("/appartments")
+}
+
+ 
 }
 module.exports = {
   index,
