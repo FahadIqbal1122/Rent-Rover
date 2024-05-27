@@ -1,20 +1,20 @@
-const appartment = require("../models/appartment")
+
 const Appartment = require("../models/appartment")
 const Image = require("../models/Image")
 
 async function index(req, res) {
   const appartments = await Appartment.find({})
-  res.render("appartments/index", { title: "All Appartments", appartments })
+  res.render('appartments/index', { title: 'All Appartments', appartments })
 }
 
-// async function show(req, res) {
-//   const appartment = await Appartment.findById(req.params.id).populate("image")
-//   console.log(`Apartment ${JSON.stringify(apartment, null, 2)}`)
-//   res.render("appartments/show", { title: "Appartment Detail", appartment })
-// }
+
+async function show(req, res) {
+  const appartment = await Appartment.findById(req.params.id)
+  res.render('appartments/show', { title: 'Appartment Detail', appartment })
+}
 
 function newAppartment(req, res) {
-  res.render("appartments/new", { title: "Add Appartment", errorMsg: "" })
+  res.render('appartments/new', { title: 'Add Appartment', errorMsg: '' })
 }
 
 async function create(req, res) {
@@ -26,12 +26,12 @@ async function create(req, res) {
     if (req.body.price) {
       appartment.price = appartment.price.toString()
     }
-    if (req.body.furnished === "true") {
+    if (req.body.furnished === 'true') {
       appartment.furnished = true
     } else {
       appartment.furnished = false
     }
-    if (req.body.parking === "on") {
+    if (req.body.parking === 'on') {
       appartment.parking = true
     } else {
       appartment.parking = false
@@ -58,7 +58,7 @@ async function create(req, res) {
     res.redirect(`/appartments/${newAppartment._id}`)
   } catch (err) {
     console.log(err)
-    res.render("appartments/new", { errorMsg: err.message })
+    res.render('appartments/new', { errorMsg: err.message })
   }
 }
 
@@ -66,10 +66,11 @@ async function deleteAppartment(req, res) {
   if (!Appartment.user === req.user._id) {
     return res
       .status(403)
-      .send("You are not authorized to delete this appartment")
+
+      .send('You are not authorized to delete this apartment')
   } else {
     await Appartment.findByIdAndDelete(req.params.id)
-    res.redirect("/appartments")
+    res.redirect('/appartments')
   }
 }
 
