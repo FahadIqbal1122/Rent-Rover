@@ -10,6 +10,7 @@ body {
 
 a {
   color: #00b7ff;
+  text-decoration: none;
 }
 #new-form input[type='submit'] {
   grid-column: span 2;
@@ -81,6 +82,10 @@ body > nav {
 .login img {
   height: 30px;
 }
+.user-name {
+  display: flex;
+  align-items: end;
+}
 .review-user {
   display: flex;
   justify-content: center;
@@ -114,17 +119,28 @@ body > nav {
   padding: 0;
   display: flex;
 }
-.nav-list li {
-  margin: 0 15px;
+ul {
+  list-style-type: none;
+  /* margin: 0;
+  padding: 0; */
+  overflow: hidden;
+  /* padding-left: 50vh; */
 }
-.nav-list li a {
-  color: #e0e0e0;
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
   text-decoration: none;
-  font-size: 18px;
-  transition: color 0.3s;
 }
-.nav-list li a:hover {
-  color: #ffd700;
+
+li a:hover {
+  background-color: #111111;
 }
 .footer {
   background-color: #333;
