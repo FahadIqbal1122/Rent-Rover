@@ -31,6 +31,7 @@ function newAppartment(req, res) {
 }
 
 async function create(req, res) {
+  console.log("Create function ***************************************");
   try {
     const appartment = new Appartment(req.body)
     if (appartment.name) {
@@ -89,18 +90,21 @@ async function deleteAppartment(req, res) {
   res.redirect('/appartments')
 }
 
-const editAppartment = (req, res) => {
-  const appartment = Appartment.findOne({_id: req.params.id});
+const editAppartment = async (req, res) => {
+  console.log(req.params.id);
+  const appartment = await Appartment.findById(req.params.id);
+  console.log(appartment);
   res.render('appartments/edit', {
     appartment
   });
 };
 
-const update = (req, res) => {
-  appartmentId = req.params.id;
-  updatedappartment = req.body.appartment;
-  Appartment.updateOne(appartmentId, updatedAppartment);
-  res.redirect('/appartments/:id');
+const update = async (req, res) => {
+  const appartmentId = req.params.id;
+  const updatedappartment = req.body;
+  console.log(updatedappartment);
+   await Appartment.findByIdAndUpdate  (appartmentId, updatedappartment);
+  res.redirect(`/appartments/${appartmentId}`);
 };
 
 module.exports = {
