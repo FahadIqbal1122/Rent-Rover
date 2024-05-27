@@ -5,6 +5,7 @@ const ensureLoggedIn = require('../config/ensureLoggedIn')
 // Credit for multer = https://www.npmjs.com/package/multer
 const multer = require('multer')
 const appartment = require('../models/appartment')
+const appartmentCtrl = require('../controllers/appartments')
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -22,5 +23,4 @@ router.post('/', upload.single('image'), ensureLoggedIn, appartmentCtrl.create)
 router.delete('/:id', ensureLoggedIn, appartmentCtrl.delete)
 router.get('/', appartmentCtrl.index)
 router.get('/:id', appartmentCtrl.show)
-
 module.exports = router

@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+
+<td><% if (user?._id.equals(review.user)) %>
+  <form id="edit-review-form" method="PUT"
+action="/appartments/<%= appartment._id %>/reviews">
+<label>Review:</label>
+<textarea name="content"></textarea>
+<input type="submit" value="update Review">
+</form>
+
+  
+<%- include('../partials/footer') %>
