@@ -1,5 +1,6 @@
 
 const Appartment = require("../models/appartment")
+
 const Image = require("../models/Image")
 
 async function index(req, res) {
