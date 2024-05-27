@@ -1,3 +1,4 @@
+const appartment = require("../models/appartment")
 const Appartment = require("../models/appartment")
 const Image = require("../models/Image")
 
@@ -6,10 +7,11 @@ async function index(req, res) {
   res.render("appartments/index", { title: "All Appartments", appartments })
 }
 
-async function show(req, res) {
-  const appartment = await Appartment.findById(req.params.id)
-  res.render("appartments/show", { title: "Appartment Detail", appartment })
-}
+// async function show(req, res) {
+//   const appartment = await Appartment.findById(req.params.id).populate("image")
+//   console.log(`Apartment ${JSON.stringify(apartment, null, 2)}`)
+//   res.render("appartments/show", { title: "Appartment Detail", appartment })
+// }
 
 function newAppartment(req, res) {
   res.render("appartments/new", { title: "Add Appartment", errorMsg: "" })
@@ -107,6 +109,8 @@ async function show(req, res) {
     const appartment = await Appartment.findById(req.params.id).populate(
       "image"
     )
+    console.log(`Apartment ${JSON.stringify(appartment, null, 2)}`)
+
     if (!appartment) {
       return res.status(404).send("Apartment not found")
     }
@@ -140,7 +144,6 @@ async function create(req, res) {
     } else {
       appartment.parking = false
     }
-    appartment.services = services?.map((service) => service._id)
     if (req.file) {
       const image = new Image({
         filename: req.file.originalname,

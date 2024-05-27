@@ -1,8 +1,8 @@
 <%- include('../partials/header') %>
 <!-- YOUR CODE HERE -->
 <section id="show-page">
-  <% if (appartment.image) { %>
-    <img src=<%=`file://wsl$/Ubuntu-22.04/home/fahad/GA/Projects/Rent-Rover/public/uploads/${appartment.image.filename}`%> alt="Apartment Image">
+  <% if (appartment.image && appartment.image.filename) { %>
+    <img src="/uploads/<%= appartment.image.filename %>" alt="Appartment Image">
   <% } else { %>
     <p>No image uploaded for this apartment.</p>
   <% } %>
