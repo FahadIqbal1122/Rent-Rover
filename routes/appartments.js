@@ -5,7 +5,6 @@ const ensureLoggedIn = require("../config/ensureLoggedIn")
 // Credit for multer = https://www.npmjs.com/package/multer
 const multer = require("multer")
 const appartmentCtrl = require("../controllers/appartments")
-const appartment = require("../models/appartment")
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -25,6 +24,10 @@ router.post('/edit/:id', appartmentCtrl.update);
 
 router.post("/", upload.single("image"), ensureLoggedIn, appartmentCtrl.create)
 router.delete("/:id", ensureLoggedIn, appartmentCtrl.delete)
+
+
+
+router.get("/find", appartmentCtrl.findAppartment)
 
 
 

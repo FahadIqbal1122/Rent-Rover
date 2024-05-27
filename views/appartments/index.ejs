@@ -1,19 +1,25 @@
 <%- include('../partials/header') %>
+<br><br>
 <form action="/appartments/find" method="GET" class="form-inline">
   <div class="form-group">
     <input type="text" name="search" placeholder="Apartment search..." class="form-control">
     <input type="submit" value="Search" class="btn btn-default">
   </div>
 </form>
-</form>
+</form><br><br>
 
 
   <% appartments.forEach(function(appartment) { %>
     <div class="boxes">
       <div class="picture">
-        <img
+        <% if (appartment.image && appartment.image.filename) { %>
+          <img src="/uploads/<%= appartment.image.filename %>" alt="Apartment Image" style="max-width: 300px; max-height: 200px;">
+        <% } else { %>
+          <img
           src="https://media.istockphoto.com/id/1165384568/photo/europe-modern-complex-of-residential-buildings.jpg?s=612x612&w=0&k=20&c=iW4NBiMPKEuvaA7h8wIsPHikhS64eR-5EVPfjQ9GPOA="
-          alt="app1">
+          alt="app1" style="max-width: 300px; max-height: 200px;">
+        <% } %>
+        
       </div>
       
 
@@ -34,6 +40,7 @@
             <button type="submit">Delete</button>
           </form>
           <% } %>
+          <br><br>
       </div>
 
 
