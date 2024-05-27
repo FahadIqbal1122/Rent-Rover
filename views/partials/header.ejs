@@ -9,7 +9,7 @@
     <% if (user) { %>
       <nav>
     <div class="app-name">Rent Rover</div>
-    <div class="user-name">Welcome,<%= user.name %> </div>
+    <div class="user-name"><a href="http://localhost:3000/users/" class="user-name-button">Welcome, <%= user.name %></a></div>
     <ul class="nav-bar">
         <li><a href="/">Home</a></li>
         <li><a href="/appartments/">All Appartments</a></li>
