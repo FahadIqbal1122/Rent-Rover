@@ -1,4 +1,5 @@
 const Appartment = require("../models/appartment")
+
 const Image = require("../models/Image")
 
 async function index(req, res) {
@@ -8,6 +9,7 @@ async function index(req, res) {
 
 async function show(req, res) {
   const appartment = await Appartment.findById(req.params.id)
+
   res.render("appartments/show", { title: "Appartment Detail", appartment })
 }
 
