@@ -7,7 +7,6 @@ async function index(req, res) {
     res.render("appartments/index", { title: "All Appartments", appartments })
   } catch (error) {
     console.error("Error fetching appartments:", error)
-    res.status(500).send("Error fetching appartments.")
   }
 }
 
@@ -22,7 +21,6 @@ async function show(req, res) {
     res.render("appartments/show", { title: "Appartment Detail", appartment })
   } catch (error) {
     console.error("Error fetching apartment details:", error)
-    res.status(500).send("Error fetching apartment details.")
   }
 }
 
@@ -31,7 +29,6 @@ function newAppartment(req, res) {
 }
 
 async function create(req, res) {
-  console.log("Create function ***************************************");
   try {
     const appartment = new Appartment(req.body)
     if (appartment.name) {
@@ -59,9 +56,8 @@ async function create(req, res) {
     const newAppartment = await appartment.save()
     console.log(newAppartment)
     res.redirect(`/appartments/${newAppartment._id}`)
-  } catch (err) {
-    console.error("Error creating appartment:", err)
-    res.render("appartments/new", { errorMsg: err.message })
+  } catch (error) {
+    console.error("Error creating appartment", error)
   }
 }
 
@@ -77,7 +73,6 @@ async function findAppartment(req, res) {
     res.render("appartments/index.ejs", { appartments: appartments })
   } catch (error) {
     console.error("Error searching appartments:", error)
-    res.status(500).send("Error searching appartments.")
   }
 }
 async function deleteAppartment(req, res) {
@@ -86,26 +81,25 @@ async function deleteAppartment(req, res) {
     user: req.user._id,
   })
 
-  res.redirect('/appartments')
-
+  res.redirect("/appartments")
 }
 
 const editAppartment = async (req, res) => {
-  console.log(req.params.id);
-  const appartment = await Appartment.findById(req.params.id);
-  console.log(appartment);
-  res.render('appartments/edit', {
-    appartment
-  });
-};
+  console.log(req.params.id)
+  const appartment = await Appartment.findById(req.params.id)
+  console.log(appartment)
+  res.render("appartments/edit", {
+    appartment,
+  })
+}
 
 const update = async (req, res) => {
-  const appartmentId = req.params.id;
-  const updatedappartment = req.body;
-  console.log(updatedappartment);
-   await Appartment.findByIdAndUpdate  (appartmentId, updatedappartment);
-  res.redirect(`/appartments/${appartmentId}`);
-};
+  const appartmentId = req.params.id
+  const updatedappartment = req.body
+  console.log(updatedappartment)
+  await Appartment.findByIdAndUpdate(appartmentId, updatedappartment)
+  res.redirect(`/appartments/${appartmentId}`)
+}
 
 module.exports = {
   index,
@@ -115,5 +109,5 @@ module.exports = {
   delete: deleteAppartment,
   edit: editAppartment,
   update,
-  findAppartment
+  findAppartment,
 }

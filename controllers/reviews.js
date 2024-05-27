@@ -38,46 +38,26 @@ async function edit(req, res) {
     const reviewId = req.params.reviewId
 
     const appartment = await Appartment.findById(appartmentId)
-    if (!appartment) {
-      return res.status(404).send("Apartment not found")
-    }
-
     const review = appartment.reviews.id(reviewId)
-    if (!review) {
-      return res.status(404).send("Review not found")
-    }
-
     res.render("appartments/editReview", { appartment, review })
   } catch (error) {
     console.error("Error editing review:", error)
-    res.status(500).send("Error editing review")
   }
 }
 
 async function update(req, res) {
   try {
     const appartment = await Appartment.findById(req.params.id)
-    if (!appartment) {
-      return res.status(404).send("Apartment not found")
-    }
-
     const reviewId = req.params.reviewId
     const updatedReview = {
       content: req.body.content,
       rating: req.body.rating,
     }
-
     const reviewToUpdate = appartment.reviews.id(reviewId)
-    if (!reviewToUpdate) {
-      return res.status(404).send("Review not found")
-    }
-
     reviewToUpdate.set(updatedReview)
     await appartment.save()
-
     res.redirect(`/appartments/${appartment._id}`)
-  } catch (err) {
-    console.error("Error updating review:", err)
-    res.status(500).send("Error updating review.")
+  } catch (error) {
+    console.error("Error updating review:", error)
   }
 }
