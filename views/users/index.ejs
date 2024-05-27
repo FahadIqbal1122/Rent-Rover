@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+
+<section id="user-apartments">
+  <h1>Your Apartments</h1>
+  <% if (appartments.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% appartments.forEach(appartment => { %>
+          <tr>
+            <td><%= appartment.name %></td>
+            <td><%= appartment.price %></td>
+            <td>
+              <a href="/appartments/<%= appartment._id %>">Details</a>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>No apartments found.</p>
+  <% } %>
+</section>
+
+<%- include('../partials/footer') %>

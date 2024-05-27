@@ -2,7 +2,7 @@
 <!-- YOUR CODE HERE -->
 <section id="show-page">
   <% if (appartment.image && appartment.image.filename) { %>
-    <img src="/uploads/<%= appartment.image.filename %>" alt="Appartment Image">
+    <img src="/uploads/<%= appartment.image.filename %>" alt="Appartment Image" style="max-width: 300px; max-height: 200px;">
   <% } else { %>
     <p>No image uploaded for this apartment.</p>
   <% } %>
@@ -18,10 +18,16 @@
   <div><%= appartment.parking ? 'yes' : 'no' %></div>
   <div>Services: </div>
   <div><%= appartment.services %></div>
+  <div>City: </div>
+  <div><%= appartment.city %></div>
   <div>Email:</div>
   <div><%= appartment.email %></div>
   <div>Price: </div>
   <div><%= appartment.price %> </div>
+
+  <% if (user?._id.equals(appartment.user)){ %>
+    <a href="/appartments/<%= appartment.id %>/edit">Edit</a>
+    <% } %>
 
   <br><br><h2>Reviews</h2>
   <% if (user) { %>

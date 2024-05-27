@@ -49,6 +49,9 @@ const appartmentSchema = new Schema({
     type: Number
   },
   services: {
+    type: []
+  },
+  city: {
     type: String
   },
   email: {
