@@ -167,4 +167,6 @@ module.exports = {
   new: newAppartment,
   create,
   delete: deleteAppartment,
+  editAppartment,
+  update
 }
