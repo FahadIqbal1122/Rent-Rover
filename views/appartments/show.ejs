@@ -2,7 +2,7 @@
 <!-- YOUR CODE HERE -->
 <section id="show-page">
   <% if (appartment.image && appartment.image.filename) { %>
-    <img src="/uploads/<%= appartment.image.filename %>" alt="Appartment Image">
+    <img src="/uploads/<%= appartment.image.filename %>" alt="Appartment Image" style="max-width: 300px; max-height: 200px;">
   <% } else { %>
     <p>No image uploaded for this apartment.</p>
   <% } %>
