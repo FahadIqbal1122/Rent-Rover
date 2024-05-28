@@ -3,7 +3,7 @@ const Image = require("../models/Image")
 
 async function index(req, res) {
   try {
-    const appartments = await Appartment.find({}).populate("image")
+    let appartments = await Appartment.find({}).populate("image")
     res.render("appartments/index", { title: "All Appartments", appartments })
   } catch (error) {
     console.error("Error fetching appartments:", error)
@@ -64,9 +64,25 @@ async function create(req, res) {
 async function findAppartment(req, res) {
   try {
     const searchQuery = req.query.search.toUpperCase()
+    const sortQuery = req.query.sortBy
+
     let appartments
-    if (searchQuery) {
-      appartments = await Appartment.find({ name: { $regex: searchQuery } })
+    if (searchQuery || sortQuery === "name") {
+      appartments = await Appartment.find({
+        name: { $regex: searchQuery },
+      }).sort("name")
+    } else if (searchQuery || sortQuery === "-name") {
+      appartments = await Appartment.find({
+        name: { $regex: searchQuery },
+      }).sort("name: -1")
+    } else if (searchQuery || sortQuery === "price") {
+      appartments = await Appartment.find({
+        name: { $regex: searchQuery },
+      }).sort("price")
+    } else if (searchQuery || sortQuery === "-price") {
+      appartments = await Appartment.find({
+        name: { $regex: searchQuery },
+      }).sort("price: -1")
     } else {
       appartments = await Appartment.find()
     }
@@ -75,6 +91,7 @@ async function findAppartment(req, res) {
     console.error("Error searching appartments:", error)
   }
 }
+
 async function deleteAppartment(req, res) {
   const appartment = await Appartment.deleteOne({
     _id: req.params.id,

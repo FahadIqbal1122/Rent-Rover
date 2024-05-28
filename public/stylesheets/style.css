@@ -4,7 +4,7 @@
 }
 body {
   /* padding: 30px; */
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: white;
 }
 
@@ -13,6 +13,7 @@ a {
   text-decoration: none;
   padding: 1vh;
   border-radius: 40%;
+  width: 40px;
 }
 
 a:hover {
@@ -20,7 +21,7 @@ a:hover {
   color: white;
   box-shadow: 3px 3px 3px gray;
 }
-#new-form input[type='submit'] {
+#new-form input[type="submit"] {
   grid-column: span 2;
   width: 10rem;
   margin-left: auto;
@@ -29,8 +30,8 @@ a:hover {
 #show-page div:nth-child(even) {
   font-weight: bold;
 }
-#add-review-form input[type='submit'],
-#add-performer-form input[type='submit'] {
+#add-review-form input[type="submit"],
+#add-performer-form input[type="submit"] {
   width: 10rem;
   grid-column: 2 / 3;
 }
@@ -53,7 +54,7 @@ a:hover {
 }
 .login {
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   height: 34px;
 }
@@ -118,11 +119,11 @@ a:hover {
   margin-left: 5px; /* Add space between the text and the image */
   max-height: 20px; /* Adjust the image height as needed */
 }
-.des{
+.des {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: url("pic.png");
+  background-image: url('pic.png');
   padding: 34vh 100vh;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -140,11 +141,10 @@ a:hover {
   color: black;
   margin-left: 70vh;
 }
-.user-name a:hover{
+.user-name a:hover {
   background-color: orange;
   color: white;
   box-shadow: 3px 3px 3px gray;
-
 }
 
 
@@ -161,7 +161,6 @@ ul {
   padding: 0; */
   overflow: hidden;
   /* padding-left: 50vh; */
-
 }
 
 li {
@@ -181,7 +180,7 @@ li a:hover {
   color: white;
   box-shadow: 3px 3px 3px gray;
 }
-.boxes{
+.boxes {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -190,7 +189,7 @@ li a:hover {
 .boxes p {
    text-align: start;
 }
-.aboutus{
+.aboutus {
   border-radius: 2%;
   box-shadow: 5px 5px 3px rgb(216, 209, 209);
   min-height: 25vh;
@@ -198,7 +197,7 @@ li a:hover {
   text-align: center;
   padding: 5vh;
 }
-.mission{
+.mission {
   border-radius: 2%;
   box-shadow: 5px 5px 3px rgb(216, 209, 209);
   min-height: 25vh;
@@ -206,13 +205,13 @@ li a:hover {
   text-align: center;
   padding: 5vh;
 }
-.committed{
+.committed {
   border-radius: 2%;
   box-shadow: 5px 5px 3px rgb(216, 209, 209);
   min-height: 20vh;
   width: 50vh;
   text-align: center;
-  padding:  0 5vh  0 5vh;
+  padding: 0 5vh 0 5vh;
 }
 
 .footer {
@@ -231,4 +230,103 @@ li a:hover {
 }
 .footer p {
   margin: 10px 0;
+}
+
+
+/* __show page _____________________________________________________________________________________*/
+
+#show-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+#show-page img {
+  max-width: 100%;
+  height: auto;
+  align-self: start;
+}
+
+container {
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+container div {
+  margin-bottom: 10px;
+}
+
+form {
+  padding: 10px;
+  border-radius: 8px;
+  display: grid;
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+form label {
+  font-weight: bold;
+  color: #f77f00;
+}
+
+form textarea,
+form select,
+form input[type='submit'] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+h2 {
+  color: #f77f00;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th {
+  background-color: #f77f00;
+  color: white;
+  font-weight: bold;
+}
+
+td {
+  background-color: #fff;
+}
+
+td img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.review-user {
+  display: flex;
+  align-items: center;
+}
+
+.edit-link,
+.edit-link button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+=======
+.logo {
+  display: flex;
+  justify-content: end;
+  align-items: right; /* Optional, for vertical alignment if needed */
+  height: 100px;
+  width: 100px;
+  border-radius: 60%;
 }

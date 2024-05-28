@@ -1,71 +1,71 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 const reviewSchema = new mongoose.Schema(
   {
     content: {
       type: String,
-      required: true,
+      required: true
     },
     rating: {
       type: Number,
       min: 1,
       max: 5,
-      default: 5,
+      default: 5
     },
     user: {
       type: Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
+      ref: 'User',
+      required: true
     },
     userName: String,
-    userAvatar: String,
+    userAvatar: String
   },
   {
-    timestamps: true,
+    timestamps: true
   }
 )
 const appartmentSchema = new Schema({
   name: {
     type: String,
-    required: true,
+    required: true
   },
   furnished: {
     type: Boolean,
-    required: true,
+    required: true
   },
   rooms: {
-    type: Number,
+    type: Number
   },
   view: {
     type: String,
-    enum: ["seaView", "gardenView", "pentHouse", "normalView"],
+    enum: ['seaView', 'gardenView', 'pentHouse', 'normalView']
   },
   parking: {
     type: Boolean,
-    required: true,
+    required: true
   },
   price: {
-    type: Number,
+    type: Number
   },
   services: {
-    type: [],
+    type: []
   },
   city: {
-    type: String,
+    type: String
   },
   email: {
-    type: String,
+    type: String
   },
   reviews: [reviewSchema],
   image: {
     type: Schema.Types.ObjectId,
-    ref: "Image",
+    ref: 'Image'
   },
   user: {
     type: Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
-  },
+    ref: 'User',
+    required: true
+  }
 })
-module.exports = mongoose.model("Appartment", appartmentSchema)
+module.exports = mongoose.model('Appartment', appartmentSchema)
