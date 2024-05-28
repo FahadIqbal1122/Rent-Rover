@@ -63,6 +63,19 @@ a:hover {
   height: 30px;
 }
 
+.review-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.review-user img {
+  border-radius: 50%;
+  height: 40px;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -224,6 +237,7 @@ li a:hover {
 .footer p {
   margin: 10px 0;
 }
+
 .logo {
   display: flex;
   justify-content: end;
