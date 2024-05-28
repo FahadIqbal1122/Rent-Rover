@@ -7,16 +7,17 @@
   <body>
   <header class="header">
     <% if (user) { %>
-      <nav>
-    <div class="app-name">Rent Rover</div>
-    <div class="user-name"><a href="http://localhost:3000/users/" class="user-name-button">Welcome, <%= user.name %></a></div>
-    <ul class="nav-bar">
+      <nav class="nav-list">
+    <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/appartments/">All Appartments</a></li>
         <li><a href="/appartments/new">New Appartment</a></li>
         <li><a href="/logout">LOG OUT</a></li>
     </ul>
+    <div class="user-name"><a href="http://localhost:3000/users/" class="user-name-button">Welcome <%= user.name %></a></div>
     <% } else { %>
+      <div class="logo"><img src="https://i.imgur.com/VvDaccN.png" alt="logo"></div>
+    <ul class="nav-bar">
       <a href="/appartments/">All Appartments</a> | 
       <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
       <% } %></nav>

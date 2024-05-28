@@ -6,8 +6,7 @@ async function index(req, res) {
     const appartments = await Appartment.find({}).populate('image')
     res.render('appartments/index', { title: 'All Appartments', appartments })
   } catch (error) {
-    console.error('Error fetching appartments:', error)
-    res.status(500).send('Error fetching appartments.')
+    console.error("Error fetching appartments:", error)
   }
 }
 
@@ -21,8 +20,7 @@ async function show(req, res) {
     }
     res.render('appartments/show', { title: 'Appartment Detail', appartment })
   } catch (error) {
-    console.error('Error fetching apartment details:', error)
-    res.status(500).send('Error fetching apartment details.')
+    console.error("Error fetching apartment details:", error)
   }
 }
 
@@ -58,9 +56,8 @@ async function create(req, res) {
     const newAppartment = await appartment.save()
     console.log(newAppartment)
     res.redirect(`/appartments/${newAppartment._id}`)
-  } catch (err) {
-    console.error('Error creating appartment:', err)
-    res.render('appartments/new', { errorMsg: err.message })
+  } catch (error) {
+    console.error("Error creating appartment", error)
   }
 }
 
@@ -75,8 +72,7 @@ async function findAppartment(req, res) {
     }
     res.render('appartments/index.ejs', { appartments: appartments })
   } catch (error) {
-    console.error('Error searching appartments:', error)
-    res.status(500).send('Error searching appartments.')
+    console.error("Error searching appartments:", error)
   }
 }
 async function deleteAppartment(req, res) {
@@ -85,15 +81,15 @@ async function deleteAppartment(req, res) {
     user: req.user._id
   })
 
-  res.redirect('/appartments')
+  res.redirect("/appartments")
 }
 
 const editAppartment = async (req, res) => {
   console.log(req.params.id)
   const appartment = await Appartment.findById(req.params.id)
   console.log(appartment)
-  res.render('appartments/edit', {
-    appartment
+  res.render("appartments/edit", {
+    appartment,
   })
 }
 
@@ -113,5 +109,5 @@ module.exports = {
   delete: deleteAppartment,
   edit: editAppartment,
   update,
-  findAppartment
+  findAppartment,
 }

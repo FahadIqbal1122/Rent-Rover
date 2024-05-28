@@ -17,15 +17,15 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage: storage })
 
-router.get('/', appartmentCtrl.index)
-router.get('/new', appartmentCtrl.new)
-router.get('/:id', appartmentCtrl.show)
-router.get('/:id/edit', appartmentCtrl.edit)
-router.post('/edit/:id', appartmentCtrl.update)
+router.get("/", appartmentCtrl.index)
+router.get("/find", appartmentCtrl.findAppartment)
+router.get("/new", appartmentCtrl.new)
+router.get("/:id", appartmentCtrl.show)
+router.get("/:id/edit", appartmentCtrl.edit)
+router.post("/edit/:id", appartmentCtrl.update)
 
 router.post('/', upload.single('image'), ensureLoggedIn, appartmentCtrl.create)
 router.delete('/:id', ensureLoggedIn, appartmentCtrl.delete)
 
-router.get('/find', appartmentCtrl.findAppartment)
 
 module.exports = router
