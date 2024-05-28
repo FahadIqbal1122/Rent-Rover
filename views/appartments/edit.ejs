@@ -1,7 +1,10 @@
 <%- include('../partials/header') %>
 
   <body>
-    <form action="/appartments/edit/<%= appartment.id %>" method="POST" autocomplete="off">
+    <form action="/appartments/edit/<%= appartment.id %>" method="POST" autocomplete="off" enctype="multipart/form-data">
+
+      <label>Image</label>
+      <input type="file" name="image" id="image">
 
       <label> Name</label>
       <input type="text" name="name" value="<%= appartment.name %>">
