@@ -26,35 +26,6 @@ a:hover {
   margin-left: auto;
 }
 
-/* body {
-  margin: 0;
-  height: 100px;
-  display: grid;
-  grid-template-rows: 50px 1fr;
-  grid-template-areas:
-    "nav"
-    "main";
-}
-
-body > nav {
-  grid-area: nav;
-  background-color: #b8c0c2;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0 20px 0 30px;
-}
-#new-form {
-  font-size: 20px;
-  padding: 5px;
-  border-radius: 5px;
-}
-#box {
-  display: flex;
-  height: 50px;
-  width: 40px;
-} */
-
 #show-page div:nth-child(even) {
   font-weight: bold;
 }
@@ -93,8 +64,10 @@ body > nav {
 
 .review-user {
   display: flex;
-  justify-content: center;
+  justify-content: space-between; 
   align-items: center;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .review-user img {
@@ -106,8 +79,38 @@ body > nav {
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  /* padding: 1vh 30vh; */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  padding-left: 20px;
+  padding-right: 10px;
+}
+.logo {
+  float: left;
+  
+}
+.logo img {
+  width: 120px; /* Adjust logo width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+.login {
+  display: flex;
+  align-items: center;
+}
+
+.login a {
+  text-decoration: none;
+  color: inherit; /* Ensure links inherit text color or set a specific color */
+  margin-right: 10px; /* Adjust spacing between links */
+}
+
+.login a:last-child {
+  display: flex;
+  align-items: center;
+  margin-right: 0; /* Remove margin for the last item */
+}
+
+.login a img {
+  margin-left: 5px; /* Add space between the text and the image */
+  max-height: 20px; /* Adjust the image height as needed */
 }
 .des{
   display: flex;
@@ -136,6 +139,7 @@ body > nav {
 
 
 .nav-list {
+
   list-style: none;
   margin: 0;
   padding: 0;
