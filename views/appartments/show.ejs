@@ -29,6 +29,9 @@
 </container>
   <% if (user?._id.equals(appartment.user)){ %>
     <a href="/appartments/<%= appartment.id %>/edit">Edit</a>
+    <form action="/appartments/<%= appartment._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete</button>
+    </form>
     <% } %>
 
   <br><br><h2>Reviews</h2>
