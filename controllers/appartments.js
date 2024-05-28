@@ -1,10 +1,10 @@
-const Appartment = require('../models/appartment')
-const Image = require('../models/Image')
+const Appartment = require("../models/appartment")
+const Image = require("../models/Image")
 
 async function index(req, res) {
   try {
-    const appartments = await Appartment.find({}).populate('image')
-    res.render('appartments/index', { title: 'All Appartments', appartments })
+    let appartments = await Appartment.find({}).populate("image")
+    res.render("appartments/index", { title: "All Appartments", appartments })
   } catch (error) {
     console.error("Error fetching appartments:", error)
   }
@@ -13,19 +13,19 @@ async function index(req, res) {
 async function show(req, res) {
   try {
     const appartment = await Appartment.findById(req.params.id).populate(
-      'image'
+      "image"
     )
     if (!appartment) {
-      return res.status(404).send('Apartment not found')
+      return res.status(404).send("Apartment not found")
     }
-    res.render('appartments/show', { title: 'Appartment Detail', appartment })
+    res.render("appartments/show", { title: "Appartment Detail", appartment })
   } catch (error) {
     console.error("Error fetching apartment details:", error)
   }
 }
 
 function newAppartment(req, res) {
-  res.render('appartments/new', { title: 'Add Appartment', errorMsg: '' })
+  res.render("appartments/new", { title: "Add Appartment", errorMsg: "" })
 }
 
 async function create(req, res) {
@@ -37,14 +37,14 @@ async function create(req, res) {
     if (req.body.price) {
       appartment.price = appartment.price.toString()
     }
-    appartment.furnished = req.body.furnished === 'true'
-    appartment.parking = req.body.parking === 'on'
+    appartment.furnished = req.body.furnished === "true"
+    appartment.parking = req.body.parking === "on"
 
     if (req.file) {
       const image = new Image({
         filename: req.file.originalname,
         contentType: req.file.mimetype,
-        data: req.file.buffer
+        data: req.file.buffer,
       })
       const savedImage = await image.save()
       appartment.image = savedImage._id
@@ -64,21 +64,38 @@ async function create(req, res) {
 async function findAppartment(req, res) {
   try {
     const searchQuery = req.query.search.toUpperCase()
+    const sortQuery = req.query.sortBy
+
     let appartments
-    if (searchQuery) {
-      appartments = await Appartment.find({ name: { $regex: searchQuery } })
+    if (searchQuery || sortQuery === "name") {
+      appartments = await Appartment.find({
+        name: { $regex: searchQuery },
+      }).sort("name")
+    } else if (searchQuery || sortQuery === "-name") {
+      appartments = await Appartment.find({
+        name: { $regex: searchQuery },
+      }).sort("name: -1")
+    } else if (searchQuery || sortQuery === "price") {
+      appartments = await Appartment.find({
+        name: { $regex: searchQuery },
+      }).sort("price")
+    } else if (searchQuery || sortQuery === "-price") {
+      appartments = await Appartment.find({
+        name: { $regex: searchQuery },
+      }).sort("price: -1")
     } else {
       appartments = await Appartment.find()
     }
-    res.render('appartments/index.ejs', { appartments: appartments })
+    res.render("appartments/index.ejs", { appartments: appartments })
   } catch (error) {
     console.error("Error searching appartments:", error)
   }
 }
+
 async function deleteAppartment(req, res) {
   const appartment = await Appartment.deleteOne({
     _id: req.params.id,
-    user: req.user._id
+    user: req.user._id,
   })
 
   res.redirect("/appartments")

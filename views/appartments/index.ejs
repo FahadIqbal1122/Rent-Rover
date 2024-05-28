@@ -3,6 +3,13 @@
 <form action="/appartments/find" method="GET" class="form-inline">
   <div class="form-group">
     <input type="text" name="search" placeholder="Apartment search..." class="form-control">
+    <select name="sortBy" id="sortBy">
+      <option value="">Sort By</option>
+      <option value="name">Name (A-Z)</option>
+      <option value="-name">Name (Z-A)</option>
+      <option value="price">Price (Low-High)</option>
+      <option value="-price">Price (High-Low)</option>
+    </select>
     <input type="submit" value="Search" class="btn btn-default">
   </div>
 </form><br><br>
