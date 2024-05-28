@@ -62,7 +62,8 @@
 
 ### **_Credits_**
 
-![Multer for image uploads](https://www.npmjs.com/package/multer)
-![Regex for search feature](https://stackoverflow.com/questions/39614608/search-query-in-mongodb-using-regular-expression)
+[Multer for image uploads](https://www.npmjs.com/package/multer)
+[Regex for search feature](https://stackoverflow.com/questions/39614608/search-query-in-mongodb-using-regular-expression)
+[Sort feature](https://www.w3schools.com/nodejs/nodejs_mongodb_sort.asp)
 
 ---
