@@ -102,6 +102,12 @@ a:hover {
   margin-right: 10px; /* Adjust spacing between links */
 }
 
+.login a:hover {
+  background-color: orange;
+  color: white;
+  box-shadow: 3px 3px 3px gray;
+}
+
 .login a:last-child {
   display: flex;
   align-items: center;
@@ -125,10 +131,14 @@ a:hover {
   font-weight: bold;
   color: #ffd700;
 }
+.user-name{
+  display: flex;
+  align-items: center;
+}
 .user-name a {
   font-size: 18px;
   color: black;
-  margin-left: 25vh;
+  margin-left: 70vh;
 }
 .user-name a:hover{
   background-color: orange;
