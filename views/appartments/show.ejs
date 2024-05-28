@@ -1,11 +1,13 @@
 <%- include('../partials/header') %>
 <!-- YOUR CODE HERE -->
+<body>
 <section id="show-page">
   <% if (appartment.image && appartment.image.filename) { %>
     <img src="/uploads/<%= appartment.image.filename %>" alt="Appartment Image" style="max-width: 300px; max-height: 200px;">
   <% } else { %>
     <p>No image uploaded for this apartment.</p>
   <% } %>
+  <container>
   <div>Building: </div>
   <div><%= appartment.name %></div>
   <div>furnished: </div>
@@ -24,7 +26,7 @@
   <div><%= appartment.email %></div>
   <div>Price: </div>
   <div><%= appartment.price %> </div>
-
+</container>
   <% if (user?._id.equals(appartment.user)){ %>
     <a href="/appartments/<%= appartment.id %>/edit">Edit</a>
     <% } %>
@@ -56,6 +58,8 @@
           <th>Date</th>
           <th>Review</th>
           <th>Rating</th>
+          <th>options</th>
+          <th>  </th>
         </tr>
       </thead>
       <tbody>
@@ -71,7 +75,7 @@
               </form>
             </td>
             <td>
-              <a href="/appartments/<%= appartment._id %>/reviews/<%= review._id %>/edit" class="edit-link">Edit Review</a>
+              <a href="/appartments/<%= appartment._id %>/reviews/<%= review._id %>/edit" class="edit-link">Edit</a>
             </td>
 
           </tr>
@@ -82,5 +86,5 @@
 
     <h5>No Reviews Yet</h5>
   <% } %>
-  
+</body>
 <%- include('../partials/footer') %>
