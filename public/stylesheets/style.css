@@ -13,6 +13,7 @@ a {
   text-decoration: none;
   padding: 1vh;
   border-radius: 40%;
+  width: 40px;
 }
 
 a:hover {
@@ -113,7 +114,7 @@ body > nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: url("pic.png");
+  background-image: url('pic.png');
   padding: 34vh 100vh;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -210,6 +211,97 @@ li a:hover {
 .footer p {
   margin: 10px 0;
 }
+
+
+/* __show page _____________________________________________________________________________________*/
+
+#show-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+#show-page img {
+  max-width: 100%;
+  height: auto;
+  align-self: start;
+}
+
+container {
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+container div {
+  margin-bottom: 10px;
+}
+
+form {
+  padding: 10px;
+  border-radius: 8px;
+  display: grid;
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+form label {
+  font-weight: bold;
+  color: #f77f00;
+}
+
+form textarea,
+form select,
+form input[type='submit'] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+h2 {
+  color: #f77f00;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th {
+  background-color: #f77f00;
+  color: white;
+  font-weight: bold;
+}
+
+td {
+  background-color: #fff;
+}
+
+td img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.review-user {
+  display: flex;
+  align-items: center;
+}
+
+.edit-link,
+.edit-link button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+=======
 .logo {
   display: flex;
   justify-content: end;
