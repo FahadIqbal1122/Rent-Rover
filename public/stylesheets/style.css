@@ -4,7 +4,7 @@
 }
 body {
   /* padding: 30px; */
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
   background-color: white;
 }
 
@@ -21,7 +21,7 @@ a:hover {
   color: white;
   box-shadow: 3px 3px 3px gray;
 }
-#new-form input[type="submit"] {
+#new-form input[type='submit'] {
   grid-column: span 2;
   width: 10rem;
   margin-left: auto;
@@ -30,8 +30,8 @@ a:hover {
 #show-page div:nth-child(even) {
   font-weight: bold;
 }
-#add-review-form input[type="submit"],
-#add-performer-form input[type="submit"] {
+#add-review-form input[type='submit'],
+#add-performer-form input[type='submit'] {
   width: 10rem;
   grid-column: 2 / 3;
 }
@@ -63,18 +63,6 @@ a:hover {
   height: 30px;
 }
 
-.review-user {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.review-user img {
-  border-radius: 50%;
-  height: 40px;
-}
 .header {
   display: flex;
   justify-content: space-between;
@@ -86,7 +74,6 @@ a:hover {
 }
 .logo {
   float: left;
-  
 }
 .logo img {
   width: 120px; /* Adjust logo width as needed */
@@ -147,9 +134,7 @@ a:hover {
   box-shadow: 3px 3px 3px gray;
 }
 
-
 .nav-list {
-
   list-style: none;
   /* margin: 0;
   padding: 0; */
@@ -187,7 +172,7 @@ li a:hover {
   margin: 5vh;
 }
 .boxes p {
-   text-align: start;
+  text-align: start;
 }
 .aboutus {
   border-radius: 2%;
@@ -232,23 +217,22 @@ li a:hover {
   margin: 10px 0;
 }
 
-
 /* __show page _____________________________________________________________________________________*/
 
-#show-page {
+#show-page-1 {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 20px;
 }
 
-#show-page img {
+#show-page-1 img {
   max-width: 100%;
   height: auto;
   align-self: start;
 }
 
-container {
+.flat-details {
   display: flex;
   flex-direction: column;
   background-color: #f2f2f2;
@@ -257,7 +241,7 @@ container {
   margin-bottom: 20px;
 }
 
-container div {
+.flat-details div {
   margin-bottom: 10px;
 }
 
@@ -286,7 +270,7 @@ h2 {
   color: #f77f00;
 }
 
-table {
+.table-show {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
@@ -321,5 +305,12 @@ td img {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-
+}
+.logo {
+  display: flex;
+  justify-content: end;
+  align-items: right;
+  height: 100px;
+  width: 100px;
+  border-radius: 60%;
 }
