@@ -65,19 +65,17 @@ a:hover {
 
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  padding-left: 20px;
-  padding-right: 10px;
+  height: 100px;
 }
 .logo {
   float: left;
 }
 .logo img {
-  width: 120px; /* Adjust logo width as needed */
-  height: auto; /* Maintain aspect ratio */
+  width: 120px;
+  height: auto; 
 }
 .login {
   display: flex;
@@ -86,8 +84,8 @@ a:hover {
 
 .login a {
   text-decoration: none;
-  color: inherit; /* Ensure links inherit text color or set a specific color */
-  margin-right: 10px; /* Adjust spacing between links */
+  color: inherit; 
+  margin-right: 10px; 
 }
 
 .login a:hover {
@@ -99,12 +97,12 @@ a:hover {
 .login a:last-child {
   display: flex;
   align-items: center;
-  margin-right: 0; /* Remove margin for the last item */
+  margin-right: 0; 
 }
 
 .login a img {
-  margin-left: 5px; /* Add space between the text and the image */
-  max-height: 20px; /* Adjust the image height as needed */
+  margin-left: 5px;
+  max-height: 20px;
 }
 .des {
   display: flex;
@@ -112,6 +110,11 @@ a:hover {
   align-items: center;
   background-image: url("pic.png");
   padding: 34vh 100vh;
+
+  width: 100%;
+  height: 68vh;
+  background-image: url('pic.png');
+
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 .header .app-name {
@@ -119,14 +122,17 @@ a:hover {
   font-weight: bold;
   color: #ffd700;
 }
-.user-name {
-  display: flex;
-  align-items: center;
-}
+
 .user-name a {
-  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
   color: black;
   margin-left: 70vh;
+  width: 400px;
+  margin-top: 30px;
 }
 .user-name a:hover {
   background-color: orange;
@@ -141,11 +147,11 @@ a:hover {
   display: flex;
 }
 ul {
-  list-style-type: none;
-  /* margin: 0;
-  padding: 0; */
-  overflow: hidden;
-  /* padding-left: 50vh; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 li {
@@ -153,11 +159,13 @@ li {
 }
 
 li a {
-  display: block;
   color: black;
   text-align: start;
   padding: 12px;
   text-decoration: none;
+  margin-right: 60px;
+  text-wrap: nowrap;
+  font-size: small;
 }
 
 li a:hover {
@@ -196,7 +204,7 @@ li a:hover {
   min-height: 20vh;
   width: 50vh;
   text-align: center;
-  padding: 0 5vh 0 5vh;
+  padding: 5vh;
 }
 
 .footer {
@@ -215,6 +223,14 @@ li a:hover {
 }
 .footer p {
   margin: 10px 0;
+}
+.logo {
+  display: flex;
+  justify-content: end;
+  align-items: right;
+  height: 100px;
+  width: 100px;
+  border-radius: 60%;
 }
 
 /* __show page _____________________________________________________________________________________*/
@@ -306,35 +322,27 @@ td img {
   border-radius: 4px;
   cursor: pointer;
 }
-.logo {
-  display: flex;
-  justify-content: end;
-  align-items: right;
-  height: 100px;
-  width: 100px;
-  border-radius: 60%;
-}
 
 .container {
   display: flex;
-  align-items: flex-start; /* Align items at the top */
+  align-items: flex-start; 
 }
 
 .box,
 .details {
   border: 1px solid black;
   padding: 10px;
-  margin-right: 10px; /* Adjust margin as needed */
+  margin-right: 10px; 
 }
 
 .box {
-  width: 200px; /* Set width for the box */
+  width: 200px;
 }
 
 .details {
-  flex: 1; /* Allow the details box to grow and take remaining space */
-  max-width: 200px; /* Set maximum width for the details box */
-  height: 200px; /* Set height to match the box */
+  flex: 1; 
+  max-width: 200px; 
+  height: 200px; 
 }
 
 .details h3 {
@@ -349,7 +357,7 @@ td img {
 
 .details a {
   display: block;
-  width: 100px; /* Set a fixed width for the link */
+  width: 100px;
   background-color: #007bff;
   color: #fff;
   padding: 5px 0;
