@@ -334,7 +334,7 @@ td img {
 .details {
   flex: 1; /* Allow the details box to grow and take remaining space */
   max-width: 200px; /* Set maximum width for the details box */
-  height: 100%; /* Set height to match the box */
+  height: 200px; /* Set height to match the box */
 }
 
 .details h3 {
