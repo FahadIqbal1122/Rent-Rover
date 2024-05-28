@@ -4,7 +4,7 @@
 }
 body {
   /* padding: 30px; */
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: white;
 }
 
@@ -21,7 +21,7 @@ a:hover {
   color: white;
   box-shadow: 3px 3px 3px gray;
 }
-#new-form input[type='submit'] {
+#new-form input[type="submit"] {
   grid-column: span 2;
   width: 10rem;
   margin-left: auto;
@@ -59,8 +59,8 @@ body > nav {
 #show-page div:nth-child(even) {
   font-weight: bold;
 }
-#add-review-form input[type='submit'],
-#add-performer-form input[type='submit'] {
+#add-review-form input[type="submit"],
+#add-performer-form input[type="submit"] {
   width: 10rem;
   grid-column: 2 / 3;
 }
@@ -83,7 +83,7 @@ body > nav {
 }
 .login {
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   height: 34px;
 }
@@ -212,6 +212,7 @@ li a:hover {
   margin: 10px 0;
 }
 
+
 /* __show page _____________________________________________________________________________________*/
 
 #show-page {
@@ -300,4 +301,12 @@ td img {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+=======
+.logo {
+  display: flex;
+  justify-content: end;
+  align-items: right; /* Optional, for vertical alignment if needed */
+  height: 100px;
+  width: 100px;
+  border-radius: 60%;
 }
