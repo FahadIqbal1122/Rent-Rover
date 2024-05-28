@@ -31,7 +31,6 @@ function newAppartment(req, res) {
 }
 
 async function create(req, res) {
-  console.log('Create function ***************************************')
   try {
     const appartment = new Appartment(req.body)
     if (appartment.name) {
