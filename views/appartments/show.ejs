@@ -1,13 +1,14 @@
 <%- include('../partials/header') %>
 <!-- YOUR CODE HERE -->
 <body>
-<section id="show-page">
+<section id="show-page-1">
   <% if (appartment.image && appartment.image.filename) { %>
     <img src="/uploads/<%= appartment.image.filename %>" alt="Appartment Image" style="max-width: 300px; max-height: 200px;">
   <% } else { %>
     <p>No image uploaded for this apartment.</p>
   <% } %>
-  <container>
+</section>
+  <container class="flat-details">
   <div>Building: </div>
   <div><%= appartment.name %></div>
   <div>furnished: </div>
@@ -34,7 +35,7 @@
     </form>
     <% } %>
 
-  <br><br><h2>Reviews</h2>
+  <h2>Reviews</h2>
   <% if (user) { %>
   <form id="add-review-form" method="POST"
     action="/appartments/<%= appartment._id %>/reviews">
@@ -54,7 +55,7 @@
   
   <% if (appartment.reviews.length) { %>
   
-    <table>
+    <table class="table-show">
       <thead>
         <tr>
           <th>User</th>
