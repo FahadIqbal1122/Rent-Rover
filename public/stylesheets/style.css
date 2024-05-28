@@ -4,7 +4,7 @@
 }
 body {
   /* padding: 30px; */
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: white;
 }
 
@@ -21,7 +21,7 @@ a:hover {
   color: white;
   box-shadow: 3px 3px 3px gray;
 }
-#new-form input[type='submit'] {
+#new-form input[type="submit"] {
   grid-column: span 2;
   width: 10rem;
   margin-left: auto;
@@ -30,8 +30,8 @@ a:hover {
 #show-page div:nth-child(even) {
   font-weight: bold;
 }
-#add-review-form input[type='submit'],
-#add-performer-form input[type='submit'] {
+#add-review-form input[type="submit"],
+#add-performer-form input[type="submit"] {
   width: 10rem;
   grid-column: 2 / 3;
 }
@@ -110,7 +110,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: url('pic.png');
+  background-image: url("pic.png");
   padding: 34vh 100vh;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -260,7 +260,7 @@ form label {
 
 form textarea,
 form select,
-form input[type='submit'] {
+form input[type="submit"] {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -314,3 +314,86 @@ td img {
   width: 100px;
   border-radius: 60%;
 }
+
+.container {
+  display: flex;
+  align-items: flex-start; /* Align items at the top */
+}
+
+.box,
+.details {
+  border: 1px solid black;
+  padding: 10px;
+  margin-right: 10px; /* Adjust margin as needed */
+}
+
+.box {
+  width: 200px; /* Set width for the box */
+}
+
+.details {
+  flex: 1; /* Allow the details box to grow and take remaining space */
+  max-width: 200px; /* Set maximum width for the details box */
+  height: 100%; /* Set height to match the box */
+}
+
+.details h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.details p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.details a {
+  display: block;
+  width: 100px; /* Set a fixed width for the link */
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 0;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.details a:hover {
+  background-color: #0056b3;
+}
+
+/* //index design  */
+
+/* .box {
+  border: 1 solid black;
+}
+.details {
+  width: 250px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.details h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.details p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.details a {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 0px;
+  text-decoration: none;
+  border-radius: 3px;
+  width: 100px;
+}
+
+.details a:hover {
+  background-color: #0056b3;
+} */
