@@ -109,11 +109,11 @@ body > nav {
   /* padding: 1vh 30vh; */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
-.des{
+.des {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: url("pic.png");
+  background-image: url('pic.png');
   padding: 34vh 100vh;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -127,11 +127,10 @@ body > nav {
   color: black;
   margin-left: 25vh;
 }
-.user-name a:hover{
+.user-name a:hover {
   background-color: orange;
   color: white;
   box-shadow: 3px 3px 3px gray;
-
 }
 .nav-list {
   list-style: none;
@@ -145,7 +144,6 @@ ul {
   padding: 0; */
   overflow: hidden;
   /* padding-left: 50vh; */
-
 }
 
 li {
@@ -165,13 +163,13 @@ li a:hover {
   color: white;
   box-shadow: 3px 3px 3px gray;
 }
-.boxes{
+.boxes {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin: 5vh;
 }
-.aboutus{
+.aboutus {
   border-radius: 2%;
   box-shadow: 5px 5px 3px rgb(216, 209, 209);
   min-height: 25vh;
@@ -179,7 +177,7 @@ li a:hover {
   text-align: center;
   padding: 5vh;
 }
-.mission{
+.mission {
   border-radius: 2%;
   box-shadow: 5px 5px 3px rgb(216, 209, 209);
   min-height: 25vh;
@@ -187,13 +185,13 @@ li a:hover {
   text-align: center;
   padding: 5vh;
 }
-.committed{
+.committed {
   border-radius: 2%;
   box-shadow: 5px 5px 3px rgb(216, 209, 209);
   min-height: 20vh;
   width: 50vh;
   text-align: center;
-  padding:  0 5vh  0 5vh;
+  padding: 0 5vh 0 5vh;
 }
 .footer {
   background-color: #333;
@@ -211,4 +209,68 @@ li a:hover {
 }
 .footer p {
   margin: 10px 0;
+}
+
+/* __show page */
+
+.apartment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  background-color: #f2f2f2;
+}
+
+.apartment-card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.picture {
+  overflow: hidden;
+}
+
+.picture img {
+  width: 100%;
+  height: auto;
+}
+
+.details {
+  flex-grow: 1;
+  margin-top: 10px;
+}
+
+.details h3 {
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #333;
+}
+
+.details p {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #666;
+}
+
+.details-link {
+  color: #ff7f00;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.details-link:hover {
+  text-decoration: underline;
+}
+
+.form-control {
+  border-color: #ff7f00;
+}
+
+.btn-default {
+  background-color: #ff7f00;
+  color: #fff;
+  border-color: #ff7f00;
 }
