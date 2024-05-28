@@ -4,7 +4,7 @@
 }
 body {
   /* padding: 30px; */
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: white;
 }
 
@@ -20,7 +20,7 @@ a:hover {
   color: white;
   box-shadow: 3px 3px 3px gray;
 }
-#new-form input[type='submit'] {
+#new-form input[type="submit"] {
   grid-column: span 2;
   width: 10rem;
   margin-left: auto;
@@ -58,8 +58,8 @@ body > nav {
 #show-page div:nth-child(even) {
   font-weight: bold;
 }
-#add-review-form input[type='submit'],
-#add-performer-form input[type='submit'] {
+#add-review-form input[type="submit"],
+#add-performer-form input[type="submit"] {
   width: 10rem;
   grid-column: 2 / 3;
 }
@@ -82,7 +82,7 @@ body > nav {
 }
 .login {
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   height: 34px;
 }
@@ -109,7 +109,7 @@ body > nav {
   /* padding: 1vh 30vh; */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
-.des{
+.des {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -127,11 +127,10 @@ body > nav {
   color: black;
   margin-left: 25vh;
 }
-.user-name a:hover{
+.user-name a:hover {
   background-color: orange;
   color: white;
   box-shadow: 3px 3px 3px gray;
-
 }
 .nav-list {
   list-style: none;
@@ -145,7 +144,6 @@ ul {
   padding: 0; */
   overflow: hidden;
   /* padding-left: 50vh; */
-
 }
 
 li {
@@ -165,13 +163,13 @@ li a:hover {
   color: white;
   box-shadow: 3px 3px 3px gray;
 }
-.boxes{
+.boxes {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin: 5vh;
 }
-.aboutus{
+.aboutus {
   border-radius: 2%;
   box-shadow: 5px 5px 3px rgb(216, 209, 209);
   min-height: 25vh;
@@ -179,7 +177,7 @@ li a:hover {
   text-align: center;
   padding: 5vh;
 }
-.mission{
+.mission {
   border-radius: 2%;
   box-shadow: 5px 5px 3px rgb(216, 209, 209);
   min-height: 25vh;
@@ -187,13 +185,13 @@ li a:hover {
   text-align: center;
   padding: 5vh;
 }
-.committed{
+.committed {
   border-radius: 2%;
   box-shadow: 5px 5px 3px rgb(216, 209, 209);
   min-height: 20vh;
   width: 50vh;
   text-align: center;
-  padding:  0 5vh  0 5vh;
+  padding: 0 5vh 0 5vh;
 }
 .footer {
   background-color: #333;
@@ -211,4 +209,12 @@ li a:hover {
 }
 .footer p {
   margin: 10px 0;
+}
+.logo {
+  display: flex;
+  justify-content: end;
+  align-items: right; /* Optional, for vertical alignment if needed */
+  height: 100px;
+  width: 100px;
+  border-radius: 60%;
 }
