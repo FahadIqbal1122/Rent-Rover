@@ -16,11 +16,7 @@
 
 ### **Find Your Appartment App**
 
-#### This App will be for users who are looking for appartments for rent depending on their requierments.
-
-#### It also allows user to see appartment details such as: Fruneture, Rooms, Appartment View, Parking, Services and Price.
-
-#### The app can track client payments and have payment history to see who is late for rent or who paid extra and subtract it from next rent
+#### In the ever-evolving world of apartment hunting, Rent Rover emerges as a user-friendly and secure solution for both tenants and landlords. Streamlining the search process, our app empowers renters with advanced filtering and sorting capabilities to find their ideal apartment. Landlords can effortlessly create and manage listings, upload high-quality picture to showcase their properties, and get feedback from tenants through a built-in review system. Fostering communication and transparency, Rent Rover strives to build a thriving community within the rental market, ensuring a smooth and successful experience for all parties involved.
 
 ---
 
@@ -48,6 +44,12 @@
 
 ---
 
+### **_Wireframe_**
+
+![ERD](./Extras/Database%20ER%20diagram.png)
+
+---
+
 ### **_Progress_**
 
 #### You can see projects progress from [Trello](https://trello.com/b/DR5WLmgo/rentrover-project)
@@ -56,7 +58,7 @@
 
 ### **_Future Updates_**
 
-#### subscribers will be able to display their properties to sell or rent.
+#### subscribers will be able to display their properties to sell or rent with payment gateway.
 
 ---
 
@@ -65,5 +67,7 @@
 [Multer for image uploads](https://www.npmjs.com/package/multer)
 [Regex for search feature](https://stackoverflow.com/questions/39614608/search-query-in-mongodb-using-regular-expression)
 [Sort feature](https://www.w3schools.com/nodejs/nodejs_mongodb_sort.asp)
+[Canva for Logo](https://www.canva.com)
+[Flaticons for icons](https://www.https://www.flaticon.com/)
 
 ---
