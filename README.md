@@ -69,5 +69,6 @@
 [Sort feature](https://www.w3schools.com/nodejs/nodejs_mongodb_sort.asp)
 [Canva for Logo](https://www.canva.com)
 [Flaticons for icons](https://www.https://www.flaticon.com/)
+[Checkbox Array](https://www.hashbangcode.com/article/html-checkbox-php-array)
 
 ---
