@@ -60,7 +60,8 @@ async function create(req, res) {
     console.error("Error creating appartment", error)
   }
 }
-
+// Credits for sort: https://www.w3schools.com/nodejs/nodejs_mongodb_sort.asp
+// Credits for search regex: https://stackoverflow.com/questions/39614608/search-query-in-mongodb-using-regular-expression
 async function findAppartment(req, res) {
   try {
     const searchQuery = req.query.search.toUpperCase()
