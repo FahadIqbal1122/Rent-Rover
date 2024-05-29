@@ -44,7 +44,7 @@
 
 ---
 
-### **_Wireframe_**
+### **_ER Diagram_**
 
 ![ERD](./Extras/Database%20ER%20diagram.png)
 
