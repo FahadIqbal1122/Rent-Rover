@@ -13,7 +13,7 @@ a {
   text-decoration: none;
   padding: 1vh;
   border-radius: 40%;
-  width: 40px;
+  width: 150px;
 }
 
 a:hover {
@@ -61,9 +61,13 @@ a:hover {
 
 .login img {
   height: 30px;
+  width: 50px;
 }
 
-.header {
+ .login a {
+  max-width:200px;
+ }
+/* .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -71,47 +75,68 @@ a:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   padding-left: 20px;
   padding-right: 10px;
-}
-.logo {
-  float: left;
-}
-.logo img {
-  width: 120px; /* Adjust logo width as needed */
-  height: auto; /* Maintain aspect ratio */
-}
-.login {
+} */
+.header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-.login a {
+.logo img {
+  height: 50px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-list .a-nav a {
   text-decoration: none;
-  color: inherit; /* Ensure links inherit text color or set a specific color */
-  margin-right: 10px; /* Adjust spacing between links */
+  color: black;
+  padding: 10px 15px;
 }
 
-.login a:hover {
+.nav-list .a-nav a:hover {
   background-color: orange;
   color: white;
   box-shadow: 3px 3px 3px gray;
 }
-
-.login a:last-child {
+.user-controls {
   display: flex;
   align-items: center;
-  margin-right: 0; /* Remove margin for the last item */
+  gap: 20px;
 }
 
-.login a img {
-  margin-left: 5px; /* Add space between the text and the image */
-  max-height: 20px; /* Adjust the image height as needed */
+.user-controls .user-name a {
+  text-decoration: none;
+  color: black;
+}
+.user-controls .user-name a:hover {
+  background-color: orange;
+  color: white;
+  box-shadow: 3px 3px 3px gray;
+}
+.user-controls .a-nav a {
+  text-decoration: none;
+  color: black;
+  padding: 10px 15px;
+}
+.user-controls .a-nav a:hover {
+  background-color: orange;
+  color: white;
+  box-shadow: 3px 3px 3px gray;
 }
 .des {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-image: url('pic.png');
-  width: 210vh;
+  width: 208vh;
   height: 70vh;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   position: relative;
@@ -121,33 +146,19 @@ a:hover {
   font-weight: bold;
   color: #ffd700;
 } */
-.user-name{
+/* .user-name{
   display: flex;
   align-items: center;
-}
-.user-name a {
-  font-size: 18px;
-  color: black;
-  margin-left: 70vh;
-}
-.user-name a:hover {
-  background-color: orange;
-  color: white;
-  box-shadow: 3px 3px 3px gray;
-}
+  justify-content: center;
+ 
+} */
 
-.nav-list {
-  list-style: none;
-  /* margin: 0;
-  padding: 0; */
-  display: flex;
-}
-ul {
+/* ul {
   list-style-type: none;
-  /* margin: 0;
-  padding: 0; */
+  margin: 0;
+  padding: 0;
   overflow: hidden;
-  /* padding-left: 50vh; */
+  padding-left: 50vh;
 }
 
 li {
@@ -166,7 +177,7 @@ li a:hover {
   background-color: orange;
   color: white;
   box-shadow: 3px 3px 3px gray;
-}
+} */
 .boxes {
   display: flex;
   justify-content: space-evenly;
@@ -184,6 +195,10 @@ li a:hover {
   text-align: center;
   padding: 5vh;
 }
+.aboutus img {
+  width: 80px;
+  height: 80px;
+}
 .mission {
   border-radius: 2%;
   box-shadow: 5px 5px 3px rgb(216, 209, 209);
@@ -192,15 +207,23 @@ li a:hover {
   text-align: center;
   padding: 5vh;
 }
+
+.mission img {
+  width: 80px;
+  height: 80px;
+}
 .committed {
   border-radius: 2%;
   box-shadow: 5px 5px 3px rgb(216, 209, 209);
   min-height: 20vh;
   width: 50vh;
   text-align: center;
-  padding: 0 5vh 0 5vh;
+  padding: 5vh;
 }
-
+.committed img {
+  width: 80px;
+  height: 80px;
+}
 .footer {
   /* display: flex;
   justify-content: space-between;

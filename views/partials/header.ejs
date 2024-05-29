@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Renet Rover</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-  <header class="header">
-    <% if (user) { %>
-      <nav class="nav-list">
-        <div class="logo"><img src="https://i.imgur.com/p5aJPAS.png" alt="logo"></div>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/appartments/">All Appartments</a></li>
-        <li><a href="/appartments/new">New Appartment</a></li>
-        <li><a href="/logout">LOG OUT</a></li>
-        
-    
-        
-    </ul>
-    <div class="user-name"><a href="http://localhost:3000/users/">Welcome <%= user.name %></a></div>
-    <% } else { %>
-      <div class="logo"><img src="https://i.imgur.com/p5aJPAS.png" alt="logo"></div>
-      <div class="login">
-      <a href="/appartments/">All Appartments</a> | 
-      <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+<head>
+  <title>Renet Rover</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+<header class="header">
+  <% if (user) { %>
+    <div class="logo"><img src="https://i.imgur.com/p5aJPAS.png" alt="logo"></div>
+    <nav class="nav-list">
+      <div class="a-nav"><a href="/">Home</a></div>
+      <div class="a-nav"><a href="/appartments/">All Appartments</a></div>
+      <div class="a-nav"><a href="/appartments/new">New Appartment</a></div>
+    </nav>
+    <div class="user-controls">
+      <div class="user-name"><a href="http://localhost:3000/users/">Welcome <%= user.name %></a></div>
+      <div class="a-nav"><a href="/logout">LOG OUT</a></div>
     </div>
-      <% } %></nav>
+  <% } else { %>
+    <div class="logo"><img src="https://i.imgur.com/p5aJPAS.png" alt="logo"></div>
+    <nav class="nav-list">
+      <div class="a-nav"><a href="/appartments/">All Appartments</a></div>
+    </nav>
+    <div class="user-controls">
+      <div class="a-nav"><a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a></div>
+    </div>
+  <% } %>
 </header>
-  </body>
+</body>
+</html>
