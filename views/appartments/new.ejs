@@ -2,13 +2,14 @@
 <form id ="new-form" action = "/appartments" method ="POST" enctype="multipart/form-data">
   <label>Image</label>
   <input type="file" name="image" id="image">
+  <br>
 <label> Name</label> 
-<input type ="text" name ="name">
+<input type ="text" name ="name"><br>
 <label>Furnished</label>
 <select name="furnished">
   <option value="true">Yes</option>
   <option value="false">No</option>
-</select>
+</select><br>
 <label>Rooms</label>
 <select name="rooms">
   <option value="1">1</option>
@@ -19,22 +20,21 @@
   <option value="6">6</option>
   <option value="7">7</option>
   <option value="8">8</option>
-</select>
+</select><br>
 <label>View</label>
 <select name="view">
   <option value="seaView">seaView</option>
   <option value="gardenView">gardenView</option>
   <option value="pentHouse">pentHouse</option>
   <option value ="normalView">normalView</option>
-</select>
+</select><br>
 <label>Price</label>
 <input type="number" name="price">
 
-
-
-<label>Services</label>
 <br>
 
+<label>Services</label>
+<div class="service-div">
 <input type="checkbox" name="services[]" value="Internet"> Internet<br>
 <input type="checkbox" name="services[]" value="Laundry facilities"> Laundry facilities<br>
 <input type="checkbox" name="services[]" value="Air conditioning"> Air conditioning<br>
@@ -42,6 +42,7 @@
 <input type="checkbox" name="services[]" value="Gym"> Gym<br>
 <input type="checkbox" name="services[]" value="Security"> Security<br>
 <input type="checkbox" name="services[]" value="Online rent payment"> Online rent payment<br>
+</div>
 <br>
   
  
@@ -60,9 +61,11 @@
       <option value=" Jidhafs">Jidhafs</option>
 </select>
 
-
+<br>
+<label>Contact Number</label>
+<input type="text" name="phone"><br>
 <label>Email</label>
-<input type ="text" name="email">
+<input type ="text" name="email"><br>
 <label>Parking</label>
 <input type="checkbox" name="parking">
 <input type="submit"   name="Add Appartment">

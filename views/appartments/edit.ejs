@@ -1,16 +1,16 @@
 <%- include('../partials/header') %>
 
   <body>
-    <form action="/appartments/edit/<%= appartment.id %>" method="POST" autocomplete="off">
+    <form id="new-form" action="/appartments/edit/<%= appartment.id %>" method="POST" autocomplete="off">
 
       <label> Name</label>
-      <input type="text" name="name" value="<%= appartment.name %>">
+      <input type="text" name="name" value="<%= appartment.name %>"><br>
 
       <label>Furnished</label>
       <select name="furnished">
         <option value="true">Yes</option>
         <option value="false">No</option>
-      </select>
+      </select><br>
 
       <label>Rooms</label>
       <select name="rooms">
@@ -22,7 +22,7 @@
         <option value="6">6</option>
         <option value="7">7</option>
         <option value="8">8</option>
-      </select>
+      </select><br>
 
       <label>View</label>
       <select name="view" value="<%= appartment.view %>">
@@ -30,27 +30,44 @@
         <option value="gardenView">gardenView</option>
         <option value="pentHouse">pentHouse</option>
         <option value="normalView">normalView</option>
-      </select>
+      </select><br>
 
       <label>Price</label>
-      <input type="number" name="price" value="<%= appartment.price %>">
+      <input type="number" name="price" value="<%= appartment.price %>"><br>
+
       <label>Services</label>
+<div class="service-div">
+<input type="checkbox" name="services[]" value="Internet"> Internet<br>
+<input type="checkbox" name="services[]" value="Laundry facilities"> Laundry facilities<br>
+<input type="checkbox" name="services[]" value="Air conditioning"> Air conditioning<br>
+<input type="checkbox" name="services[]" value="Room Service"> Room Service<br>
+<input type="checkbox" name="services[]" value="Gym"> Gym<br>
+<input type="checkbox" name="services[]" value="Security"> Security<br>
+<input type="checkbox" name="services[]" value="Online rent payment"> Online rent payment<br>
+</div>
       <br>
-      
-      <input type="checkbox" name="services[]" value="Internet"> Internet<br>
-      <input type="checkbox" name="services[]" value="Laundry facilities"> Laundry facilities<br>
-      <input type="checkbox" name="services[]" value="Air conditioning"> Air conditioning<br>
-      <input type="checkbox" name="services[]" value="Room Service"> Room Service<br>
-      <input type="checkbox" name="services[]" value="Gym"> Gym<br>
-      <input type="checkbox" name="services[]" value="Security"> Security<br>
-      <input type="checkbox" name="services[]" value="Online rent payment"> Online rent payment<br>
-      <br>
+
+      <label for="city">city</label>
+<select name="city" value="<%= appartment.ci %>"> 
+    <option value="Manama">Manama</option>
+    <option value="Muharraq">Muharraq</option>
+    <option value="Riffa">Riffa</option>
+    <option value="Al Hidd">Al Hidd</option>
+    <option value=" Hamad Town"> Hamad Town</option>
+    <option value="Isa Town">Isa Town</option>
+    <option value="Arad">Arad</option>
+      <option value=" Malkiya">Malkiya</option>
+      <option value=" Jidhafs">Jidhafs</option>
+</select><br>
+
+      <label>Contact Number</label>
+<input type="text" name="phone" value="<%= appartment.phone %>"><br>
 
       <label>Email</label>
-      <input type="text" name="email" value="<%= appartment.email %>">
+      <input type="text" name="email" value="<%= appartment.email %>"><br>
 
       <label>Parking</label>
-      <input type="checkbox" name="parking" value="<%= appartment.parking %>">
+      <input type="checkbox" name="parking" value="<%= appartment.parking %>"><br>
 
       <button type="submit">Update Appartment</button>
     </form>

@@ -1,60 +1,64 @@
 <%- include('../partials/header') %>
-<br><br>
-<form action="/appartments/find" method="GET" class="form-inline">
-  <div class="form-group">
-    <input type="text" name="search" placeholder="Apartment search..." class="form-control">
-    <select name="sortBy" id="sortBy">
-      <option value="">Sort By</option>
-      <option value="name">Name (A-Z)</option>
-      <option value="-name">Name (Z-A)</option>
-      <option value="price">Price (Low-High)</option>
-      <option value="-price">Price (High-Low)</option>
-    </select>
-    <input type="submit" value="Search">
-    <button><a href="http://localhost:3000/appartments/">Clear</a></button>
-  </div>
-</form><br><br>
 
-
-  <% appartments.forEach(function(appartment) { %>
-    <div class="boxes">
-      <div class="picture">
-        <% if (appartment.image && appartment.image.filename) { %>
-          <img src="/uploads/<%= appartment.image.filename %>" alt="Apartment Image" style="max-width: 300px; max-height: 200px;">
-        <% } else { %>
-          <img
-          src="https://media.istockphoto.com/id/1165384568/photo/europe-modern-complex-of-residential-buildings.jpg?s=612x612&w=0&k=20&c=iW4NBiMPKEuvaA7h8wIsPHikhS64eR-5EVPfjQ9GPOA="
-          alt="app1" style="max-width: 300px; max-height: 200px;">
-        <% } %>
-        
-      </div>
-      
-
-      <div class="details">
-        <h3>
-          <%= appartment.name %>
-        </h3>
-        <p>
-          <%= appartment.price%>
-        </p>
-        <p>
-          <%= appartment.email %>
-        </p>
-        <a href="/appartments/<%= appartment._id %>" class="details-link">DETAILS</a>
-
-        <% if (user?._id.equals(appartment.user)){ %>
-          <form action="/appartments/<%= appartment._id %>?_method=DELETE" method="POST">
-            <button type="submit">Delete</button>
-          </form>
-          <% } %>
-          <br><br>
-      </div>
-
-
+  <br><br>
+  <form action="/appartments/find" method="GET" class="form-inline-filters">
+    <div class="form-group">
+      <input type="text" name="search" placeholder="Apartment search..." class="form-control">
+      <select name="sortBy" id="sortBy">
+        <option value="">Sort By</option>
+        <option value="name">Name (A-Z)</option>
+        <option value="-name">Name (Z-A)</option>
+        <option value="price">Price (Low-High)</option>
+        <option value="-price">Price (High-Low)</option>
+      </select>
+      <input type="submit" value="Search" class="btn btn-default">
+      <button><a href="http://localhost:3000/appartments/">Clear</a></button>
     </div>
-    <% }); %>
+  </form><br><br>
+
+  <div class="apartment-grid">
+    <% appartments.forEach(function(appartment) { %>
+      <div class="boxes-index">
+        <div class="picture">
+          <% if (appartment.image && appartment.image.filename) { %>
+            <img src="/uploads/<%= appartment.image.filename %>" alt="Apartment Image"
+              style="max-width: 300px; max-height: 200px;">
+            <% } else { %>
+              <img
+                src="https://media.istockphoto.com/id/1165384568/photo/europe-modern-complex-of-residential-buildings.jpg?s=612x612&w=0&k=20&c=iW4NBiMPKEuvaA7h8wIsPHikhS64eR-5EVPfjQ9GPOA="
+                alt="app1" style="max-width: 300px; max-height: 200px;">
+              <% } %>
+
+        </div>
 
 
+        <div class="details">
+          <h3>
+            <%= appartment.name %>
+          </h3>
+          <p>
+            <%= appartment.price%> BD
+          </p>
+          <p>
+            <%= appartment.email %>
+          </p>
+          <p>
+            <%= appartment.phone %>
+          </p> 
+
+      
+          <button class="details-button"><a href="/appartments/<%= appartment._id %>"
+              class="details-link">DETAILS</a></button>
+
+          
+              <br><br>
+        </div>
 
 
-      <%- include('../partials/footer') %>
+      </div>
+      <% }); %>
+
+  </div>
+
+
+  <%- include('../partials/footer') %>

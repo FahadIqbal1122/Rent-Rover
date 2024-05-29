@@ -1,94 +1,129 @@
 <%- include('../partials/header') %>
-<!-- YOUR CODE HERE -->
-<body>
-<section id="show-page-1">
-  <% if (appartment.image && appartment.image.filename) { %>
-    <img src="/uploads/<%= appartment.image.filename %>" alt="Appartment Image" style="max-width: 300px; max-height: 200px;">
-  <% } else { %>
-    <p>No image uploaded for this apartment.</p>
-  <% } %>
-</section>
-  <container class="flat-details">
-  <div>Building: </div>
-  <div><%= appartment.name %></div>
-  <div>furnished: </div>
-  <div><%= appartment.furnished ? 'yes' : 'no' %></div>
-  <div>Rooms: </div>
-  <div><%= appartment.rooms %></div>
-  <div>Appartment View: </div>
-  <div><%= appartment.view %></div>
-  <div>Parking: </div>
-  <div><%= appartment.parking ? 'yes' : 'no' %></div>
-  <div>Services: </div>
-  <div><%= appartment.services %></div>
-  <div>City: </div>
-  <div><%= appartment.city %></div>
-  <div>Email:</div>
-  <div><%= appartment.email %></div>
-  <div>Price: </div>
-  <div><%= appartment.price %> </div>
-</container>
-  <% if (user?._id.equals(appartment.user)){ %>
-    <a href="/appartments/<%= appartment.id %>/edit">Edit</a>
-    <form action="/appartments/<%= appartment._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete</button>
-    </form>
-    <% } %>
 
-  <h2>Reviews</h2>
-  <% if (user) { %>
-  <form id="add-review-form" method="POST"
-    action="/appartments/<%= appartment._id %>/reviews">
-    <label>Review:</label>
-    <textarea name="content"></textarea>
-    <label>Rating:</label>
-    <select name="rating">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5" selected>5</option>
-    </select>
-    <input type="submit" value="Add Review">
-  </form>
-  <% } %>
-  
-  <% if (appartment.reviews.length) { %>
-  
-    <table class="table-show">
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Date</th>
-          <th>Review</th>
-          <th>Rating</th>
-          <th>options</th>
-          <th>  </th>
-        </tr>
-      </thead>
-      <tbody>
-        <% appartment.reviews.forEach(function(review) { %>
-          <tr>
-            <td class="review-user"><img alt="avatar" src="<%= review.userAvatar %>" referrerpolicy="no-referrer" ><%= review.userName %></td>
-            <td><%= review.createdAt.toLocaleDateString() %></td>
-            <td><%= review.content %></td>
-            <td><%= review.rating %></td>
-            <td> <% if (user?._id.equals(review.user)) { %>
-              <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete</button>
-              </form>
-            </td>
-            <td>
-              <a href="/appartments/<%= appartment._id %>/reviews/<%= review._id %>/edit" class="edit-link">Edit</a>
-            </td>
+  <body>
+    <section id="show-page-1">
+      <% if (appartment.image && appartment.image.filename) { %>
+        <img src="/uploads/<%= appartment.image.filename %>" alt="Appartment Image"
+          style="max-width: 300px; max-height: 200px;">
+        <% } else { %>
+          <p>No image uploaded for this apartment.</p>
+          <% } %>
+            <container class="flat-details">
+              <div class="mama">Building: </div>
+              <div>
+                <%= appartment.name %>
+              </div>
+              <div class="mama">furnished: </div>
+              <div>
+                <%= appartment.furnished ? 'yes' : 'no' %>
+              </div>
+              <div class="mama">Rooms: </div>
+              <div>
+                <%= appartment.rooms %>
+              </div>
+              <div class="mama">Appartment View: </div>
+              <div>
+                <%= appartment.view %>
+              </div>
+              <div class="mama">Parking: </div>
+              <div>
+                <%= appartment.parking ? 'yes' : 'no' %>
+              </div>
+              <div class="mama">Services: </div>
+              <div>
+                <%= appartment.services %>
+              </div>
+              <div class="mama">City: </div>
+              <div>
+                <%= appartment.city %>
+              </div>
+              <div class="mama">Phone Number: </div>
+              <div>+973 <%= appartment.phone %>
+              </div>
+              <div class="mama">Email:</div>
+              <div>
+                <%= appartment.email %>
+              </div>
+              <div class="mama">Price: </div>
+              <div>
+                <%= appartment.price %> BD
+              </div>
+            </container>
+            <div class="the-show-page-buttons">
+            <% if (user?._id.equals(appartment.user)){ %>
+              <button class="details-button"><a class="details-link" href="/appartments/<%= appartment.id %>/edit">Edit</a></button>
+              <% } %>
 
-          </tr>
-        <% }}); %>
-      </tbody>
-    </table>
-    <% } else { %>
+                <% if (user?._id.equals(appartment.user)){ %>
+                  <form style="margin-top: 20px;" action="/appartments/<%= appartment._id %>?_method=DELETE" method="POST">
+                    <button class="details-button" type="submit">Delete</button>
+                  </form>
+                  <% } %>
+            </div>
+                    <h2>Reviews</h2>
+                    <% if (user) { %>
+                      <form id="add-review-form" method="POST" action="/appartments/<%= appartment._id %>/reviews">
+                        <label>Review:</label>
+                        <textarea name="content"></textarea>
+                        <label>Rating:</label>
+                        <select name="rating">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5" selected>5</option>
+                        </select>
+                        <input type="submit" value="Add Review">
+                      </form>
+                      <% } %>
 
-    <h5>No Reviews Yet</h5>
-  <% } %>
-</body>
-<%- include('../partials/footer') %>
+                        <% if (appartment.reviews.length) { %>
+
+                          <table class="table-show">
+                            <thead>
+                              <tr>
+                                <th>User</th>
+                                <th>Date</th>
+                                <th>Review</th>
+                                <th>Rating</th>
+                                <th>options</th>
+                                <th> </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% appartment.reviews.forEach(function(review) { %>
+                                <tr>
+                                  <td class="review-user"><img alt="avatar" src="<%= review.userAvatar %>"
+                                      referrerpolicy="no-referrer">
+                                    <%= review.userName %>
+                                  </td>
+                                  <td>
+                                    <%= review.createdAt.toLocaleDateString() %>
+                                  </td>
+                                  <td>
+                                    <%= review.content %>
+                                  </td>
+                                  <td>
+                                    <%= review.rating %>
+                                  </td>
+                                  <td>
+                                    <% if (user?._id.equals(review.user)) { %>
+                                      <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
+                                        <button class="details-button" id="deleteBtn" type="submit">Delete</button>
+                                      </form>
+                                  </td>
+                                  <td>
+                                    <button class="details-button"><a href="/appartments/<%= appartment._id %>/reviews/<%= review._id %>/edit"
+                                      class="edit-link">Edit</a></button>
+                                  </td>
+
+                                </tr>
+                                <% }}); %>
+                            </tbody>
+                          </table>
+                          <% } else { %>
+
+                            <h5>No Reviews Yet</h5>
+                            <% } %>
+  </body>
+  <%- include('../partials/footer') %>
