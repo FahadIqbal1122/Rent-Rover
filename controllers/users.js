@@ -8,7 +8,6 @@ async function index(req, res) {
     res.render("users/index", { title: "Your Apartments", appartments })
   } catch (error) {
     console.error("Error fetching user's apartments:", error)
-    res.status(500).send("Error fetching user's apartments.")
   }
 }
 
