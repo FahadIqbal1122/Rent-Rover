@@ -59,6 +59,8 @@
 ### **_Future Updates_**
 
 #### subscribers will be able to display their properties to sell or rent with payment gateway.
+#### adding rent payment history
+
 
 ---
 
