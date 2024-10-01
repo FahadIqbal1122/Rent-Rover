@@ -1,31 +1,27 @@
 * {
   box-sizing: border-box;
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 body {
- 
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
-  background-color:#F5F5DC;
-} 
-
+  background-color: #f1f5ff;
+}
 
 #new-form input[type='submit'] {
-
   grid-column: span 2;
   width: 10rem;
 }
-#new-form{
+#new-form {
   display: flex;
   flex-direction: column;
   width: 200px;
 }
 
-
 #show-page div:nth-child(even) {
   font-weight: bold;
 }
-#add-review-form input[type="submit"],
-#add-performer-form input[type="submit"] {
+#add-review-form input[type='submit'],
+#add-performer-form input[type='submit'] {
   width: 10rem;
   grid-column: 2 / 3;
 }
@@ -59,14 +55,11 @@ body {
   width: 50px;
 }
 
-
- .login a {
-  max-width:200px;
- }
-
+.login a {
+  max-width: 200px;
+}
 
 .review-user {
-
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -75,7 +68,6 @@ body {
 
   padding-left: 20px;
   padding-right: 20px;
-
 }
 
 .review-user img {
@@ -92,15 +84,11 @@ body {
 }
 .logo {
   float: left;
-
 }
 
 .logo img {
-
   height: 90px;
-  width: 250px;
-  margin-right: 91px;
-
+  width: 100px;
 }
 
 .nav-list {
@@ -116,14 +104,13 @@ body {
 }
 
 .nav-list .a-nav a:hover {
-  background-color: orange;
+  background-color: grey;
   color: white;
   box-shadow: 3px 3px 3px gray;
 }
 .user-controls {
   display: flex;
   align-items: center;
-
   gap: 20px;
 }
 
@@ -132,7 +119,7 @@ body {
   color: black;
 }
 .user-controls .user-name a:hover {
-  background-color: orange;
+  background-color: grey;
   color: white;
   box-shadow: 3px 3px 3px gray;
 }
@@ -142,7 +129,7 @@ body {
   padding: 10px 15px;
 }
 .user-controls .a-nav a:hover {
-  background-color: orange;
+  background-color: grey;
   color: white;
   box-shadow: 3px 3px 3px gray;
 }
@@ -151,11 +138,11 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  background-image: url('pic.png');
-  width: 208vh;
-  height: 70vh;
+  background-image: url('Blue\ Modern\ Real\ Estate\ Banner.png');
+  background-size: cover;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  position: relative;
+  height: 100vh;
+  width: 216vh;
 }
 
 .home-info {
@@ -199,14 +186,12 @@ body {
   width: 50vh;
   text-align: center;
   padding: 5vh;
-
 }
 .committed img {
   width: 80px;
   height: 80px;
 }
 .footer {
-
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   text-align: center;
@@ -248,7 +233,7 @@ body {
   height: auto;
   align-self: start;
 }
-.mama{
+.mama {
   font-weight: bold;
   font-size: large;
 }
@@ -256,11 +241,12 @@ body {
 .flat-details {
   display: flex;
   flex-direction: column;
-  background-color:beige;
+  background-color: whitesmoke;
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
- border: solid rgb(94, 94, 94);
+  border: solid rgb(94, 94, 94);
+  width: 60vh;
 }
 
 .flat-details div {
@@ -282,7 +268,7 @@ form label {
 
 form textarea,
 form select,
-form input[type="submit"] {
+form input[type='submit'] {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -306,7 +292,6 @@ th {
 
 td {
   background-color: #fff;
-
 }
 
 td img {
@@ -335,24 +320,17 @@ td img {
 
 .container {
   display: flex;
-  align-items: flex-start; 
+  align-items: flex-start;
 }
 
 .box,
 .details {
-  border: 1px solid black;
   padding: 10px;
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 .box {
   width: 200px;
-}
-
-.details {
-  flex: 1; 
-  max-width: 200px; 
-  height: 200px; 
 }
 
 .details h3 {
@@ -368,25 +346,22 @@ td img {
 .details a {
   display: block;
   width: 100px;
-  background-color: #007bff;
-  color: #fff;
   padding: 5px 0;
   text-align: center;
   text-decoration: none;
   border-radius: 3px;
 }
 
-.details a:hover {
-  background-color: #0056b3;
-}
-
-
-
-
 /* __index page _____________________________________________________________________________________*/
 
-.boxes-index{
-  width: 600px;
+.picture {
+  width: 90px;
+  height: 90px;
+  margin-right: 150px;
+}
+
+.boxes-index {
+  width: 570px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: start;
@@ -395,19 +370,19 @@ td img {
   margin-left: 40px;
 }
 
-.boxes-index{
+.boxes-index {
   box-shadow: #b8c0c2;
   background-color: white;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.boxes-index .details{
+.boxes-index .details {
   margin-left: 100px;
 }
-.apartment-grid{
+.apartment-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px; 
+  gap: 20px;
 }
 .form-inline-filters {
   width: 100%;
@@ -432,7 +407,6 @@ td img {
   font-size: 16px;
 }
 
-
 .btn {
   padding: 10px 20px;
   font-size: 16px;
@@ -446,26 +420,25 @@ td img {
   background-color: #0056b3; /* Darker shade for hover effect */
 }
 
-.details-button{
-
+.details-button {
   height: 30px;
-  background-color: rgb(238, 73, 73);
+  background-color: rgba(217, 114, 114, 0.751);
   color: white;
   width: 70px;
 }
-#deleteBtn{
+#deleteBtn {
   margin-top: 19px;
 }
 
-.details-link{
+.details-link {
   text-decoration: none;
   color: white;
+  margin-left: 30px;
 }
 
-.the-show-page-buttons{
+.the-show-page-buttons {
   display: flex;
   align-items: center;
   gap: 1px;
   align-content: center;
 }
-
